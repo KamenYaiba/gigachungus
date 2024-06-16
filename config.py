@@ -74,6 +74,4 @@ giga_bunny = '''.      (\__/)
       / ╰    ╯ \ /   \>'''
 
 
-print(lil_bunny)
-
 
