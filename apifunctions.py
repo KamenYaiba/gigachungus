@@ -16,9 +16,10 @@ def generate_rep_id(chat_id):
 def get_chat_id(rep_id):
     with open('rep_ids.json', 'r') as file:
         ids = json.load(file)
-    id = ids.pop(rep_id)
+    id = ids[rep_id]
     if id is None:
         return -1
+    destroy_rep_id(rep_id)
     return id
 
 
@@ -37,4 +38,3 @@ def random_string():
     for i in range(8):
         ranstr = ranstr + random.choice(chars)
     return ranstr
-
