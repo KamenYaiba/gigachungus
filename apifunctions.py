@@ -39,5 +39,3 @@ def random_string():
         ranstr = ranstr + random.choice(chars)
     return ranstr
 
-
-try
