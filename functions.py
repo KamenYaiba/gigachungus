@@ -253,8 +253,12 @@ def get_lost_points_wgpa(gpa, hours):
     if bool(results):
         return results
 
-s = '''a
-180
-50
+s = '''b
+234
+70
+70
 3
+cl
 '''
+
+print(report_b_request(s, AR))
