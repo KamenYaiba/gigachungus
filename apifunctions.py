@@ -1,6 +1,12 @@
 import json
 import string
 import random
+import config
+from config import(
+    MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command, AR, EN,
+    arabic_users_json, NUMBER_OF_SEMESTERS, COP_HOURS, HONORS, DEANS_LIST_MIN,
+    hrs, advanced_by, late_by)
+from functions import get_report
 
 
 def generate_rep_id(chat_id):
@@ -16,10 +22,11 @@ def generate_rep_id(chat_id):
 def get_chat_id(rep_id):
     with open('rep_ids.json', 'r') as file:
         ids = json.load(file)
-    id = ids[rep_id]
-    if id is None:
+    if rep_id not in ids:
         return -1
-    destroy_rep_id(rep_id)
+    id = ids.pop(rep_id)
+    with open('rep_ids.json', 'w') as file:
+        json.dump(ids, file)
     return id
 
 
@@ -38,3 +45,23 @@ def random_string():
     for i in range(8):
         ranstr = ranstr + random.choice(chars)
     return ranstr
+
+
+def report_c_request(data, lang):
+    try:
+        points = data.get('points')
+        passed_hours = data.get('passed_hours')
+        semester = data.get('semester')
+        max_points = passed_hours * MAX_GPA
+        mj = data.get('major')
+        if any(var is None for var in(points, passed_hours, semester, max_points, mj)):
+            return -1
+        if (points > max_points or passed_hours > TOTAL_HOURS[mj] or
+                semester > NUMBER_OF_SEMESTERS or points < passed_hours or mj not in TOTAL_HOURS):
+            return -2
+    except Exception as e:
+        print(e)
+        return -1
+    return get_report(config.report_a, passed_hours, points, semester, lang, registered_hours=passed_hours, mj=mj)
+
+

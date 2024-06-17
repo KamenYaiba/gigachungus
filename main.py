@@ -5,7 +5,7 @@ from config import(report_a_command, report_b_command, invalid_format_warning,wr
 from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
-from apifunctions import generate_rep_id, get_chat_id
+from apifunctions import generate_rep_id, get_chat_id, report_c_request
 
 
 bot = telebot.TeleBot(TOKEN, threaded=False)
@@ -17,21 +17,6 @@ app = Flask(__name__)
 def webhook():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
-
-
-@app.route('/reportreq', methods=["POST"])
-def repreq():
-    data = request.json
-    if data is None:
-        return 400
-    key = data.get('key')
-    if key not in REQUEST_KEYS:
-        return 'Your are not allowed to use this service', 403
-    chat_id = get_chat_id(data.get('repid'))
-    if key is None or chat_id is None:
-        return 400
-    bot.send_message(chat_id=chat_id, text='it works')
-    return 'it works', 200
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -99,6 +84,29 @@ def report_c(msg):
     chat_id = msg.chat.id
     rep_id = generate_rep_id(chat_id)
     bot.send_message(chat_id=chat_id, text=rep_id)
+
+
+@app.route('/reportreq', methods=["POST"])
+def repreq():
+    data = request.json
+    if data is None:
+        return 400
+    key = data.get('key')
+    if key not in REQUEST_KEYS:
+        return 'Your are not allowed to use this service', 403
+    chat_id = get_chat_id(data.get('repid'))
+    if key is None or chat_id is None:
+        return 400
+
+    lang = language(chat_id)
+    report = report_c_request(data, lang)
+    if report == -1:
+        bot.send_message(chat_id=chat_id, text='An unexpected error occurred')
+    if report == -2:
+        bot.send_message(chat_id=chat_id, text=wrong_info[lang])
+
+    bot.send_message(chat_id=chat_id, text=report)
+    return 'it works', 200
 
 
 if __name__ == '__main__':
