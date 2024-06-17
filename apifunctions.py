@@ -49,9 +49,9 @@ def random_string():
 
 def report_c_request(data, lang):
     try:
-        points = data.get('points')
-        passed_hours = data.get('passed_hours')
-        semester = data.get('semester')
+        points = float(data.get('points'))
+        passed_hours = int(data.get('passed_hours'))
+        semester = int(data.get('semester'))
         max_points = passed_hours * MAX_GPA
         mj = data.get('major')
         if any(var is None for var in(points, passed_hours, semester, max_points, mj)):
