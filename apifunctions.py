@@ -31,7 +31,7 @@ def get_chat_id(rep_id):
     with open('rep_ids.json', 'r') as file:
         ids = json.load(file)
     if rep_id not in ids:
-        return -1
+        return None
     id = ids.pop(rep_id)
     with open('rep_ids.json', 'w') as file:
         json.dump(ids, file)
