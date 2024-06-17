@@ -21,7 +21,7 @@ def generate_rep_id(chat_id):
 
 def log_req(req):
     with open('api_req_logs.txt', 'a') as file:
-        file.write(req)
+        file.write(str(req))
 
 
 def get_chat_id(rep_id):
