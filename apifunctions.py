@@ -19,6 +19,11 @@ def generate_rep_id(chat_id):
     return rep_id
 
 
+def log_req(req):
+    with open('api_req_logs.txt', 'a') as file:
+        file.write(req)
+
+
 def get_chat_id(rep_id):
     with open('rep_ids.json', 'r') as file:
         ids = json.load(file)

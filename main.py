@@ -5,7 +5,7 @@ from config import(report_a_command, report_b_command, invalid_format_warning,wr
 from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
-from apifunctions import generate_rep_id, get_chat_id, report_c_request
+from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
 
 
 bot = telebot.TeleBot(TOKEN, threaded=False)
@@ -89,6 +89,7 @@ def report_c(msg):
 @app.route('/reportreq', methods=["POST"])
 def repreq():
     data = request.json
+    log_req(data)
     if data is None:
         return 400
     key = data.get('key')
