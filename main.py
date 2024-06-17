@@ -103,11 +103,12 @@ def repreq():
     report = report_c_request(data, lang)
     if report == -1:
         bot.send_message(chat_id=chat_id, text='An unexpected error occurred')
+        return 'bad request', 400
     elif report == -2:
         bot.send_message(chat_id=chat_id, text=wrong_info[lang])
-
+        return 'wrong info', 400
     else: bot.send_message(chat_id=chat_id, text=report)
-    return 'it works', 200
+    return 'report sent', 200
 
 
 if __name__ == '__main__':

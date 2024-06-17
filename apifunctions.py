@@ -7,6 +7,8 @@ from config import(
     arabic_users_json, NUMBER_OF_SEMESTERS, COP_HOURS, HONORS, DEANS_LIST_MIN,
     hrs, advanced_by, late_by)
 from functions import get_report
+import pytz
+from _datetime import datetime
 
 
 def generate_rep_id(chat_id):
@@ -20,8 +22,9 @@ def generate_rep_id(chat_id):
 
 
 def log_req(req):
+    dt = datetime.now(pytz.timezone('Asia/Riyadh'))
     with open('api_req_logs.txt', 'a') as file:
-        file.write(str(req))
+        file.write(dt.strftime("%A %d %B %Y %H:%M")+ '\t' + str(req) +'\n\n')
 
 
 def get_chat_id(rep_id):
@@ -58,7 +61,7 @@ def report_c_request(data, lang):
         passed_hours = int(data.get('passed_hours'))
         semester = int(data.get('semester'))
         max_points = passed_hours * MAX_GPA
-        mj = data.get('major')
+        mj = 'cs'
         if any(var is None for var in(points, passed_hours, semester, max_points, mj)):
             return -1
         if (points > max_points or passed_hours > TOTAL_HOURS[mj] or
