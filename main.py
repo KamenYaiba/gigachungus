@@ -96,8 +96,8 @@ def repreq():
     if key not in REQUEST_KEYS:
         return 'Your are not allowed to use this service', 403
     chat_id = get_chat_id(data.get('repid'))
-    if key is None or chat_id is None:
-        return 400
+    if chat_id is None:
+        return 'rep_id invalid or expired', 400
 
     lang = language(chat_id)
     report = report_c_request(data, lang)
