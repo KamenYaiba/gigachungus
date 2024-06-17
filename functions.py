@@ -122,7 +122,8 @@ def report_a_request(msg, lang):
         semester = abs(int(inputs[2]))
         max_points = passed_hours * MAX_GPA
         mj = 'cs'
-        if points > max_points or passed_hours > TOTAL_HOURS[mj] or semester > NUMBER_OF_SEMESTERS or points < passed_hours:
+        if (points > max_points or passed_hours > TOTAL_HOURS[mj] or semester > NUMBER_OF_SEMESTERS
+                or points < passed_hours):
             return -2
     except Exception as e:
         print(e)
@@ -140,8 +141,9 @@ def report_b_request(msg, lang):
         registered_hours = abs(int(inputs[2]))
         semester = abs(int(inputs[3]))
         max_points = passed_hours * MAX_GPA
-        mj = ''
-        if points > max_points or semester > NUMBER_OF_SEMESTERS or passed_hours > TOTAL_HOURS[mj] or passed_hours > registered_hours or points < passed_hours:
+        mj = inputs[4]
+        if (points > max_points or semester > NUMBER_OF_SEMESTERS or passed_hours > TOTAL_HOURS[mj]
+                or passed_hours > registered_hours or points < passed_hours or mj not in TOTAL_HOURS):
             return -2
     except Exception as e:
         print(e)
