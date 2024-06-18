@@ -24,7 +24,7 @@ def webhook():
 def start_command(msg):
     id = msg.chat.id
     lang = language(id)
-    bot.send_photo(id, photo=open(greet[lang]), caption=menu[lang])
+    bot.send_photo(id, photo=open(greet[lang], 'rb'), caption=menu[lang])
     log(msg)
 
 
