@@ -19,14 +19,9 @@ logo = '''(\\  /)
 (•ㅅ•)'''
 signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 
+
 menu = []
-arabic_menu = '''.       ________________
-       |   أنعم صباحا!   |
-       |كيف أساعدك اليوم؟|
-(\__/) |________________|
-(•ㅅ•)     | |
- /  　 づ | |\n\n
-/en To change the language to English
+arabic_menu = '''/en To change the language to English
  
  
 /reporta تقرير من نوع أ
@@ -42,14 +37,7 @@ arabic_menu = '''.       ________________
 -سيتوجب عليك ملء استمارة 'Google Forms'
 '''
 
-english_menu = '''.       ________________
-       |  what's good!  |
-       | How can I help |
-       |   you today?   |
-(\__/) |________________|
-(•ㅅ•)     | |
- /  　 づ | |\n\n
- /ar لتغيير اللغة إلى العربية
+english_menu = '''/ar لتغيير اللغة إلى العربية
  
  
 /reporta Report type A
@@ -66,6 +54,7 @@ english_menu = '''.       ________________
 '''
 menu.append(arabic_menu)
 menu.append(english_menu)
+greet = ['arabic_greeting.png', 'english_greeting.png']
 report_a = ['تقرير من نوع أ\n----------------', 'Report Type A\n----------------']
 report_b = ['تقرير من نوع ب\n----------------', 'Report Type B\n----------------']
 report_c = ['تقرير من نوع ج\n----------------', 'Report Type C\n----------------']

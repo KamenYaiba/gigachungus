@@ -2,7 +2,7 @@ from flask import Flask, request
 import telebot
 from telebot import types
 from config import(report_a_command, report_b_command, invalid_format_warning,wrong_info,
-                   menu)
+                   menu, greet)
 from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
@@ -24,7 +24,7 @@ def webhook():
 def start_command(msg):
     id = msg.chat.id
     lang = language(id)
-    bot.send_message(msg.chat.id, menu[lang])
+    bot.send_photo(id, photo=open(greet[lang]), caption=menu[lang])
     log(msg)
 
 
