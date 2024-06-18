@@ -1,7 +1,8 @@
 from flask import Flask, request
 import telebot
 from telebot import types
-from config import(report_a_command, report_b_command, invalid_format_warning,wrong_info)
+from config import(report_a_command, report_b_command, invalid_format_warning,wrong_info,
+                   menu)
 from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
@@ -19,9 +20,11 @@ def webhook():
     return "!", 200
 
 
-@bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start', 'help', 'menu'])
 def start_command(msg):
-    bot.send_message(msg.chat.id, f'Hey n *{msg.chat.first_name}*!', parse_mode='Markdown', reply_markup=types.ReplyKeyboardRemove())
+    id = msg.chat.id
+    lang = language(id)
+    bot.send_message(msg.chat.id, menu[lang])
     log(msg)
 
 

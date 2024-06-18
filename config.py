@@ -15,6 +15,57 @@ report_b_command = 'b'
 
 AR = 0
 EN = 1
+logo = '''(\\  /)
+(•ㅅ•)'''
+signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
+
+menu = []
+arabic_menu = '''.       ________________
+       |   أنعم صباحا!   |
+       |كيف أساعدك اليوم؟|
+(\__/) |________________|
+(•ㅅ•)     | |
+ /  　 づ | |\n\n
+/en To change the language to English
+ 
+ 
+/reporta تقرير من نوع أ
+-الأسرع
+-خاص بطلاب كلية الحاسب
+
+/reportb تقرير من نوع ب
+- الأكثر شعبية
+- يجب عليك تحديد كليتك
+
+/reportc
+-الأكثر تفصيلا
+-سيتوجب عليك ملء استمارة 'Google Forms'
+'''
+
+english_menu = '''.       ________________
+       |  what's good!  |
+       | How can I help |
+       |   you today?   |
+(\__/) |________________|
+(•ㅅ•)     | |
+ /  　 づ | |\n\n
+ /ar لتغيير اللغة إلى العربية
+ 
+ 
+/reporta Report type A
+-Fastest
+-For CCIS students only
+
+/reportb Report type B
+-Most popular
+-Must specify your college
+
+/reportc
+-Most detailed
+-Must submit a Google Form
+'''
+menu.append(arabic_menu)
+menu.append(english_menu)
 report_a = ['تقرير من نوع أ\n----------------', 'Report Type A\n----------------']
 report_b = ['تقرير من نوع ب\n----------------', 'Report Type B\n----------------']
 report_c = ['تقرير من نوع ج\n----------------', 'Report Type C\n----------------']
@@ -48,15 +99,14 @@ semester_points = ['النقاط التي حصلت عليها هذا الفصل:
 max_boost_def = ['أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل 18 ساعة وتحصل علىA + في جميع المواد): ',
                  'Max possible GPA boost (assuming you register for 18 hours and get A+ in all courses next semester): ']
 max_boost = ['أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم: ', 'Max possible GPA boost by the end of next semester: ']
+college = ['الكلية: ', 'College: ']
 
 
 invalid_format_warning = ['خطأ في تنسيق الطلب! يرجى اتباع التنسيق المقدم لكم', 'Invalid format! please follow the format provided previously']
 wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! يرجى مراجعتها', "The data you provided doesn't seem to make sense! try again please"]
+no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم', 'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
 
 
-logo = '''(\\  /)
-(•ㅅ•)'''
-signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 
 lil_bunny = '''(\__/) 
 (•ㅅ•) 
@@ -74,4 +124,4 @@ giga_bunny = '''.      (\__/)
       / ╰    ╯ \ /   \>'''
 
 
-
+print(menu[0])

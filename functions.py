@@ -128,7 +128,7 @@ def report_a_request(msg, lang):
     except Exception as e:
         print(e)
         return -1
-    return get_report(config.report_a, passed_hours, points, semester, lang, registered_hours=passed_hours, mj=mj)
+    return get_report(config.report_a, passed_hours, points, semester, lang, registered_hours=passed_hours, mj=mj)+ f'{config.signature}'
 
 
 def report_b_request(msg, lang):
@@ -148,7 +148,7 @@ def report_b_request(msg, lang):
     except Exception as e:
         print(e)
         return -1
-    return get_report(config.report_b, passed_hours, points, semester, lang, registered_hours, mj)
+    return get_report(config.report_b, passed_hours, points, semester, lang, registered_hours, mj)+ f'{config.signature}'
 
 
 def get_report(type, passed_hours, points, semester, lang, registered_hours, mj):
@@ -183,7 +183,7 @@ def get_report(type, passed_hours, points, semester, lang, registered_hours, mj)
         failed_hours=failed_hours,
         passed_hours=passed_hours,
         lost_points=lost_points
-    ) + f'{config.signature}'
+    )
 
 
 def report_formatter(type, gpa, exact_gpa, max_gpa, passed_hours, failed_hours, remaining_hours, avg_hours, remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage, rank_estimation, lang):
