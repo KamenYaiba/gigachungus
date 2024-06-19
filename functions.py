@@ -213,7 +213,7 @@ def report_formatter(type, gpa, exact_gpa, max_gpa, passed_hours, failed_hours, 
 def error_log(e):
     dt = datetime.now(pytz.timezone('Asia/Riyadh'))
     with open('errorsLog.txt', 'a') as file:
-        file.write(dt.strftime("%A %d %B %Y %H:%M") +'\t\t' + str(e) + '\n\n')
+        file.write(dt.strftime("%A %d %B %Y %H:%M") +'\t\t' + e.__traceback__ + '\n\n\n')
 
 
 def log(msg):
