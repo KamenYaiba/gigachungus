@@ -133,3 +133,6 @@ giga_bunny = '''.      (\__/)
        ｜( 王 ﾉ〈   
        /ﾐ`ー―彡\  
       / ╰    ╯ \ /   \>'''
+
+
+print(report_a_manual[1])
