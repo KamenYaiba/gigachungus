@@ -22,26 +22,36 @@ def webhook():
 
 @bot.message_handler(commands=['start', 'help', 'menu'])
 def start_command(msg):
-    id = msg.chat.id
-    lang = language(id)
-    bot.send_photo(id, photo=open(greet[lang], 'rb'), caption=menu[lang])
-    log(msg)
+    try:
+        id = msg.chat.id
+        lang = language(id)
+        bot.send_photo(id, photo=open(greet[lang], 'rb'), caption=menu[lang])
+        log(msg)
+    except Exception as e:
+        error_log(e)
 
 
 @bot.message_handler(commands=['ar'])
 def change_lang_to_ar(msg):
-    id = msg.chat.id
-    add_to_arabic_users(id)
-    bot.reply_to(msg, "لقد غيرت اللغة إلى العربية")
-    log(msg)
+    try:
+        id = msg.chat.id
+        add_to_arabic_users(id)
+        bot.reply_to(msg, "لقد غيرت اللغة إلى العربية")
+        log(msg)
+    except Exception as e:
+        error_log(e)
+
 
 
 @bot.message_handler(commands=['en'])
 def change_lang_to_en(msg):
-    id = msg.chat.id
-    remove_from_arabic_users(id)
-    bot.reply_to(msg, "Language changed to English")
-    log(msg)
+    try:
+        id = msg.chat.id
+        remove_from_arabic_users(id)
+        bot.reply_to(msg, "Language changed to English")
+        log(msg)
+    except Exception as e:
+        error_log(e)
 
 
 @bot.message_handler(regexp='^' + report_a_command)
@@ -84,16 +94,22 @@ def report_b(msg):
 
 @bot.message_handler(commands=["reportc"])
 def report_c(msg):
-    chat_id = msg.chat.id
-    rep_id = generate_rep_id(chat_id)
-    bot.send_message(chat_id=chat_id, text=rep_id)
+    try:
+        chat_id = msg.chat.id
+        rep_id = generate_rep_id(chat_id)
+        bot.send_message(chat_id=chat_id, text=rep_id)
+    except Exception as e:
+        error_log(e)
 
 
 @bot.message_handler(commands=["reporta"])
 def report_c(msg):
-    chat_id = msg.chat.id
-    lang = language(id)
-    bot.send_message(chat_id=chat_id, text=report_a_manual[lang])
+    try:
+        chat_id = msg.chat.id
+        lang = language(id)
+        bot.send_message(chat_id=chat_id, text=report_a_manual[lang])
+    except Exception as e:
+        error_log(e)
 
 
 @app.route('/reportreq', methods=["POST"])
