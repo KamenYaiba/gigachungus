@@ -2,7 +2,7 @@ from flask import Flask, request
 import telebot
 from telebot import types
 from config import(report_a_command, report_b_command, invalid_format_warning,wrong_info,
-                   menu, greet)
+                   menu, greet, report_a_manual)
 from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
@@ -87,6 +87,13 @@ def report_c(msg):
     chat_id = msg.chat.id
     rep_id = generate_rep_id(chat_id)
     bot.send_message(chat_id=chat_id, text=rep_id)
+
+
+@bot.message_handler(commands=["reporta"])
+def report_c(msg):
+    chat_id = msg.chat.id
+    lang = language(id)
+    bot.send_message(chat_id=chat_id, text=report_a_manual[lang])
 
 
 @app.route('/reportreq', methods=["POST"])
