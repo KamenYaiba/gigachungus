@@ -32,7 +32,7 @@ arabic_menu = '''/en To change the language to English
 - الأكثر شعبية
 - يجب عليك تحديد كليتك
 
-/reportc
+/reportc تقرير من نوع ج
 -الأكثر تفصيلا
 -سيتوجب عليك ملء استمارة 'Google Forms'
 '''
@@ -48,7 +48,7 @@ english_menu = '''/ar لتغيير اللغة إلى العربية
 -Most popular
 -Must specify your college
 
-/reportc
+/reportc Report Type C
 -Most detailed
 -Must submit a Google Form
 '''
@@ -111,20 +111,3 @@ giga_bunny = '''.      (\__/)
        ｜( 王 ﾉ〈   
        /ﾐ`ー―彡\  
       / ╰    ╯ \ /   \>'''
-
-
-print(menu[0])
-
-
-
-'''
-    __________________
-   |   أنعم صباحـا؟    |
-   | كيف أساعدك اليوم؟ |
-   |__________________|
-(\__/)  | |
-(•ㅅ•) | |
-/  　 づ 
-
-
-'''
