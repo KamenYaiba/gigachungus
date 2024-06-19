@@ -72,7 +72,7 @@ ______________
 
 /reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
 '''
-report_a_manual = [a_ar, '']
+report_a_manual = [a_ar, 'yy']
 report_b_manual = ['', '']
 report_c_manual = ['', '']
 
