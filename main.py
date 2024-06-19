@@ -107,7 +107,7 @@ def report_a(msg):
     try:
         chat_id = msg.chat.id
         lang = language(chat_id)
-        bot.send_message(chat_id=chat_id, text=report_a_manual[lang]+str(lang))
+        bot.send_message(chat_id=chat_id, text=report_a_manual[lang])
     except Exception as e:
         error_log(e)
 
