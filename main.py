@@ -103,7 +103,7 @@ def report_c(msg):
 
 
 @bot.message_handler(commands=["reporta"])
-def report_c(msg):
+def report_a(msg):
     try:
         chat_id = msg.chat.id
         lang = language(id)
