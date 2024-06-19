@@ -70,11 +70,29 @@ a
 36           
 33           
 2    
-_____
+¯¯¯¯¯
 
 /reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
 '''
-a_en = '''
+a_en = '''send a message in the following format:
+
+Report Type(a)
+Points you gained
+Registered hours
+Passed Hours
+Number of semesters you've passed(PYP and summer semesters don't count)
+--------------------------------------------
+
+Example:
+_____
+a            
+117.75       
+36           
+33           
+2    
+¯¯¯¯¯
+
+/reporthelp  if you don't know your points, registered hours, or passed hours
 '''
 report_a_manual = [a_ar, 'yy']
 report_b_manual = ['', '']
