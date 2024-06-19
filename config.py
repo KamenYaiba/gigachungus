@@ -20,7 +20,6 @@ logo = '''(\\  /)
 signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 
 
-menu = []
 arabic_menu = '''/en To change the language to English
  
  
@@ -52,8 +51,7 @@ english_menu = '''/ar لتغيير اللغة إلى العربية
 -Most detailed
 -Must submit a Google Form
 '''
-menu.append(arabic_menu)
-menu.append(english_menu)
+menu = [arabic_menu, english_menu]
 a_ar = '''أرسل رسالة بالصيغة التالية:
 
 نوع التقرير(a)
