@@ -6,6 +6,7 @@ from config import(
     hrs, advanced_by, late_by)
 from _datetime import datetime
 import pytz
+import traceback
 
 
 def round_to_nearest_quarter(num):
@@ -213,7 +214,7 @@ def report_formatter(type, gpa, exact_gpa, max_gpa, passed_hours, failed_hours, 
 def error_log(e):
     dt = datetime.now(pytz.timezone('Asia/Riyadh'))
     with open('errorsLog.txt', 'a') as file:
-        file.write(dt.strftime("%A %d %B %Y %H:%M") +'\t\t' + e.__traceback__ + '\n\n\n')
+        file.write(dt.strftime("%A %d %B %Y %H:%M") + '\t\t'.join(traceback.format_exception(None, e, e.__traceback__))+ '\n\n\n')
 
 
 def log(msg):
