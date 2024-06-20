@@ -25,15 +25,15 @@ arabic_menu = '''/en To change the language to English
  
 /reporta تقرير من نوع أ
 -الأسرع
--خاص بطلاب كلية الحاسب
+-خاص بطلاب كلية الحاسب\n
 
 /reportb تقرير من نوع ب
 - الأكثر شعبية
-- يجب عليك تحديد كليتك
+- يجب عليك تحديد كليتك\n
 
 /reportc تقرير من نوع ج
 -الأكثر تفصيلا
--سيتوجب عليك ملء استمارة 'Google Forms'
+-سيتوجب عليك ملء استمارة 'Google Forms'\n
 '''
 
 english_menu = '''/ar لتغيير اللغة إلى العربية
@@ -41,11 +41,11 @@ english_menu = '''/ar لتغيير اللغة إلى العربية
  
 /reporta Report type A
 -Fastest
--For CCIS students only
+-For CCIS students only\n
 
 /reportb Report type B
 -Most popular
--Must specify your college
+-Must specify your college\n
 
 /reportc Report Type C
 -Most detailed
@@ -63,20 +63,90 @@ a_ar = '''أرسل رسالة بالصيغة التالية:
 
 مثال:
 _____
-a            
-117.75       
-36           
-33           
-2    
-_____
+a
+117.75
+36
+33
+2
+¯¯¯¯¯
 
 /reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
 '''
-a_en = '''
+a_en = '''send a message in the following format:
+
+Report Type(a)
+Points you gained
+Registered hours
+Passed Hours
+Number of semesters you've passed(PYP and summer semesters don't count)
+------------------------------------------
+
+Example:
+_____
+a
+117.75
+36
+33
+2
+¯¯¯¯¯
+
+/reporthelp  if you don't know your points, registered hours, or passed hours
 '''
-report_a_manual = [a_ar, 'yy']
-report_b_manual = ['', '']
-report_c_manual = ['', '']
+report_a_manual = [a_ar, a_en]
+
+b_ar = '''أرسل رسالة بالصيغة التالية:
+
+نوع التقرير(b)
+عدد النقاط التي حصلت عليها
+الساعات المسجلة
+الساعات المجتازة
+عدد الفصول التي أكملتها(لا تحسب التحضيري والفصول الصيفية)
+الكلية(القانون:cl، الهندسة:ce، إدارة الأعمال:cba، العمارة والتصميم:cad )
+------------------------------------------
+
+مثال:
+_____
+b
+117.75
+36
+33
+2
+ce
+¯¯¯¯¯
+
+/reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
+'''
+b_en = '''send a message in the following format:
+
+Report Type(a)
+Points you gained
+Registered hours
+Passed Hours
+Number of semesters you've passed(PYP and summer semesters don't count)
+College(Law:cl, Engineering:ce, Business:cba, Architecture and Design:cad')
+------------------------------------------
+
+Example:
+_____
+b
+117.75
+36
+33
+2
+ce
+¯¯¯¯¯
+
+/reporthelp  if you don't know your points, registered hours, or passed hours
+'''
+report_b_manual = [b_ar, b_en]
+
+c_ar = ''''''
+c_en = ''''''
+report_c_manual = [c_ar, c_en]
+
+report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
+               'Log in to your Edugate account\nAcademic > Academic Transcript']
+report_help_photo = ['arabic_report_help.png', 'english_report_help.png']
 
 greet = ['arabic_greeting.png', 'english_greeting.png']
 report_a = ['تقرير من نوع أ\n----------------', 'Report Type A\n----------------']
@@ -120,12 +190,11 @@ wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! 
 no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم', 'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
 
 
-
-lil_bunny = '''(\__/) 
+lil_bunny = '''(\\__/) 
 (•ㅅ•) 
  /  　 づ'''
 
-giga_bunny = '''.      (\__/)
+giga_bunny = '''.      (\\__/)
        (•ㅅ•) 
     ＿ノヽ ノ＼＿      
 /　/ ⌒Ｙ⌒ Ｙ  ヽ    
@@ -133,8 +202,7 @@ giga_bunny = '''.      (\__/)
 |　ﾉ⌒＼ ￣￣ヽ   ノ
 ヽ＿＿＿＞､＿_／
        ｜( 王 ﾉ〈   
-       /ﾐ`ー―彡\  
-      / ╰    ╯ \ /   \>'''
+       /ﾐ`ー―彡\\  
+      / ╰    ╯ \\ /   \\>'''
 
 
-print(report_a_manual[1])
