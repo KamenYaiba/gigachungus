@@ -7,6 +7,7 @@ from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
+import json
 
 
 bot = telebot.TeleBot(TOKEN, threaded=False)
@@ -16,7 +17,8 @@ app = Flask(__name__)
 
 @app.route('/'+WEBHOOK, methods=["POST"])
 def webhook():
-    log_req(request.stream.read().decode("utf-8"))
+    update = json.load(request.stream.read().decode("utf-8"))
+    log_req(update.get('from').get('language_code'))
     #bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
