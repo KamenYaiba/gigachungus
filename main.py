@@ -7,7 +7,7 @@ from functions import(report_a_request, report_b_request, language, error_log, l
                        add_to_arabic_users, remove_from_arabic_users)
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
 
-from handlers import bot, start_handler
+from handlers import bot, start_handler, change_language_handler
 
 
 app = Flask(__name__)
@@ -27,24 +27,10 @@ def start_command(msg):
         error_log(e)
 
 
-@bot.message_handler(commands=['ar'])
+@bot.message_handler(commands=['ar', 'en'])
 def change_lang_to_ar(msg):
     try:
-        id = msg.chat.id
-        add_to_arabic_users(id)
-        bot.reply_to(msg, "لقد غيرت اللغة إلى العربية")
-        log(msg)
-    except Exception as e:
-        error_log(e)
-
-
-@bot.message_handler(commands=['en'])
-def change_lang_to_en(msg):
-    try:
-        id = msg.chat.id
-        remove_from_arabic_users(id)
-        bot.reply_to(msg, "Language changed to English", parse_mode='MarkdownV2')
-        log(msg)
+        change_language_handler(msg)
     except Exception as e:
         error_log(e)
 
