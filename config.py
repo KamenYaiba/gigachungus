@@ -188,6 +188,7 @@ college = ['الكلية: ', 'College: ']
 invalid_format_warning = ['خطأ في تنسيق الطلب! يرجى اتباع التنسيق المقدم لكم', 'Invalid format! please follow the format provided previously']
 wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! يرجى مراجعتها', "The data you provided doesn't seem to make sense! try again please"]
 no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم', 'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
+language_changed = ["لقد غيرت اللغة إلى العربية", "Language changed to English"]
 
 
 lil_bunny = '''(\\__/) 
