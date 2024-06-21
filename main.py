@@ -1,13 +1,10 @@
 from flask import Flask, request
 import telebot
-from config import(report_a_command, report_b_command, invalid_format_warning,wrong_info,
-                   menu, greet, report_a_manual)
-from keys import TOKEN, WEBHOOK, REQUEST_KEYS
-from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
-                       add_to_arabic_users, remove_from_arabic_users)
-from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
-
-from handlers import bot, start_handler, change_language_handler
+from config import report_a_command, report_b_command
+from keys import WEBHOOK
+from functions import error_log
+from handlers import (bot, start_handler, change_language_handler, report_ab_handler, report_c_handler,
+                      report_manual_handler, api_report_request_handler)
 
 
 app = Flask(__name__)
@@ -35,39 +32,10 @@ def change_lang_to_ar(msg):
         error_log(e)
 
 
-@bot.message_handler(regexp='^' + report_a_command)
+@bot.message_handler(regexp='^' + report_a_command+'|'+report_b_command)
 def report_a(msg):
     try:
-        log(msg)
-        id = msg.chat.id
-        lang = language(id)
-        report = report_a_request(msg.text, lang)
-        if report == -1:
-            bot.reply_to(msg, text=invalid_format_warning[lang])
-        elif report == -2:
-            bot.reply_to(msg, text=wrong_info[lang])
-        else:
-            bot.send_message(chat_id=id, text=report)
-            report_log(id, report)
-    except Exception as e:
-        bot.reply_to(msg, "An Error occurred")
-        error_log(e)
-
-
-@bot.message_handler(regexp='^' + report_b_command)
-def report_b(msg):
-    try:
-        log(msg)
-        id = msg.chat.id
-        lang = language(id)
-        report = report_b_request(msg.text, lang)
-        if report == -1:
-            bot.reply_to(msg, text=invalid_format_warning[lang])
-        elif report == -2:
-            bot.reply_to(msg, text=wrong_info[lang])
-        else:
-            bot.send_message(chat_id=id, text=report)
-            report_log(id, report)
+        report_ab_handler(msg)
     except Exception as e:
         bot.reply_to(msg, "An Error occurred")
         error_log(e)
@@ -76,65 +44,25 @@ def report_b(msg):
 @bot.message_handler(commands=["reportc"])
 def report_c(msg):
     try:
-        chat_id = msg.chat.id
-        rep_id = generate_rep_id(chat_id)
-        bot.send_message(chat_id=chat_id, text=rep_id)
+        report_c_handler(msg)
     except Exception as e:
         error_log(e)
 
 
-@bot.message_handler(commands=["reporta"])
-def report_a(msg):
+@bot.message_handler(commands=["reporta", "reportb", "reportc"])
+def report_manual(msg):
     try:
-        chat_id = msg.chat.id
-        lang = language(chat_id)
-        bot.send_message(chat_id=chat_id, text=report_a_manual[lang])
+        report_manual_handler(msg)
     except Exception as e:
         error_log(e)
 
 
 @app.route('/reportreq', methods=["POST"])
-def repreq():
-    data = request.json
-    log_req(data)
-    if data is None:
-        return 400
-    key = data.get('key')
-    if key not in REQUEST_KEYS:
-        return 'Your are not allowed to use this service', 403
-    chat_id = get_chat_id(data.get('repid'))
-    if chat_id is None:
-        return 'rep_id invalid or expired', 400
-
-    lang = language(chat_id)
-    report = report_c_request(data, lang)
-    if report == -1:
-        bot.send_message(chat_id=chat_id, text='An unexpected error occurred')
-        return 'bad request', 400
-    elif report == -2:
-        bot.send_message(chat_id=chat_id, text=wrong_info[lang])
-        return 'wrong info', 400
-    else:
-        bot.send_message(chat_id=chat_id, text=report)
-    return 'report sent', 200
-
-
-@app.route('/', methods=['GET'])
-def test():
-    return '''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Test</title>
-        <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    </head>
-    <body>
-        <h1>Hi</h1>
-    </body>
-    </html>
-    '''
+def api_report_request():
+    try:
+        api_report_request_handler(request.json)
+    except Exception as e:
+        error_log(e)
 
 
 if __name__ == '__main__':
