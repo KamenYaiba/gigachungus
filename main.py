@@ -140,7 +140,7 @@ def repreq():
 
 @app.route('/', methods=['GET'])
 def test():
-    return 'hi mio'
+    return '<script src="https://telegram.org/js/telegram-web-app.js"></script>'
 
 
 if __name__ == '__main__':
