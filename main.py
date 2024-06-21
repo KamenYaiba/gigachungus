@@ -19,7 +19,7 @@ def webhook():
 @bot.message_handler(commands=['start', 'help', 'menu'])
 def start_command(msg):
     try:
-        start_handler(msg)
+        start_handler(msg).asd()
     except Exception as e:
         error_log(e)
 
