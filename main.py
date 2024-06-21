@@ -16,13 +16,12 @@ def webhook():
         bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     except Exception as e:
         error_log(e)
-        return "!", 200
     return "!", 200
 
 
 @bot.message_handler(commands=['start', 'help', 'menu'])
 def start_command(msg):
-    start_handler(msg).asg()
+    start_handler(msg)
 
 
 @bot.message_handler(commands=['ar', 'en'])
