@@ -48,7 +48,7 @@ def change_lang_to_en(msg):
     try:
         id = msg.chat.id
         remove_from_arabic_users(id)
-        bot.reply_to(msg, "Language changed to English '''hhhh'''", parse_mode='markdown')
+        bot.reply_to(msg, "Language changed to English '''hhhh'''", parse_mode='MarkdownV2')
         log(msg)
     except Exception as e:
         error_log(e)
