@@ -8,10 +8,8 @@ PLAN = {1: 18, 2: 35, 3: 53, 4: 72, 5: 89, 6: 107, 7: 124, 8: 134}
 HONORS = {1: 3.50, 2: 3.25, 3: 3.00}
 DEANS_LIST_MIN = 3.75
 
-
 report_a_command = 'a'
 report_b_command = 'b'
-
 
 AR = 0
 EN = 1
@@ -19,10 +17,9 @@ logo = '''(\\  /)
 (•ㅅ•)'''
 signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 
-
 arabic_menu = '''/en To change the language to English
- 
- 
+
+
 /reporta تقرير من نوع أ
 -الأسرع
 -خاص بطلاب كلية الحاسب\n
@@ -37,8 +34,8 @@ arabic_menu = '''/en To change the language to English
 '''
 
 english_menu = '''/ar لتغيير اللغة إلى العربية
- 
- 
+
+
 /reporta Report type A
 -Fastest
 -For CCIS students only\n
@@ -140,8 +137,8 @@ ce
 '''
 report_b_manual = [b_ar, b_en]
 
-c_ar = '''انسخ رقم الطلب واملأ [الإستمارة](\https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link)\ لاستلام التقرير'''
-c_en = 'fill the [form]\(https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link\)'
+c_ar = '''انسخ رقم الطلب واملأ [الإستمارة](https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link) لاستلام التقرير'''
+c_en = 'fill the [form](https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link)'
 report_c_manual = [c_ar, c_en]
 
 report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
@@ -167,8 +164,9 @@ rank_estimation = ['الترتيب التقريبي(على كليتك): ', 'Roug
 hours_percentage = ['نسبة الساعات المجتازة: ', 'Credit Hours Completed Percentage: ']
 remaining_hours = ['الساعات المتبقية: ', 'Hours Remaining: ']
 remaining_semesters = ['الفصول المتبقية: ', 'Remaining Semesters: ']
-max_gpa_next_semester = ['أعلى معدل تراكمي ممكن بعد الفصل القادم(بافتراض أنك ستسجل 18 ساعة وتحصل على A+ في جميع المواد): ',
-                         'The highest possible cumulative GPA after the next semester (assuming you register for 18 hours and get an A+ in all courses): ']
+max_gpa_next_semester = [
+    'أعلى معدل تراكمي ممكن بعد الفصل القادم(بافتراض أنك ستسجل 18 ساعة وتحصل على A+ في جميع المواد): ',
+    'The highest possible cumulative GPA after the next semester (assuming you register for 18 hours and get an A+ in all courses): ']
 failed_hours = ['ساعات الرسوب: ', 'Failed Hours: ']
 advanced_by = ['متقدم بـ ', 'Advanced by ']
 late_by = ['متأخر بـ ', 'Late by ']
@@ -181,15 +179,17 @@ points = ['النقاط التي حصلت عليها: ', 'Points gained: ']
 semester_points = ['النقاط التي حصلت عليها هذا الفصل: ', 'Points gained this semester: ']
 max_boost_def = ['أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل 18 ساعة وتحصل علىA + في جميع المواد): ',
                  'Max possible GPA boost (assuming you register for 18 hours and get A+ in all courses next semester): ']
-max_boost = ['أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم: ', 'Max possible GPA boost by the end of next semester: ']
+max_boost = ['أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم: ',
+             'Max possible GPA boost by the end of next semester: ']
 college = ['الكلية: ', 'College: ']
 
-
-invalid_format_warning = ['خطأ في تنسيق الطلب! يرجى اتباع التنسيق المقدم لكم', 'Invalid format! please follow the format provided previously']
-wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! يرجى مراجعتها', "The data you provided doesn't seem to make sense! try again please"]
-no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم', 'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
+invalid_format_warning = ['خطأ في تنسيق الطلب! يرجى اتباع التنسيق المقدم لكم',
+                          'Invalid format! please follow the format provided previously']
+wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! يرجى مراجعتها',
+              "The data you provided doesn't seem to make sense! try again please"]
+no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم',
+                   'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
 language_changed = ["لقد غيرت اللغة إلى العربية", "Language changed to English"]
-
 
 lil_bunny = '''(\\__/) 
 (•ㅅ•) 
@@ -205,5 +205,4 @@ giga_bunny = '''.      (\\__/)
        ｜( 王 ﾉ〈   
        /ﾐ`ー―彡\\  
       / ╰    ╯ \\ /   \\>'''
-
 
