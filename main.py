@@ -14,7 +14,6 @@ app = Flask(__name__)
 def webhook():
     try:
         bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-        bot.
     except Exception as e:
         error_log(e)
         return "!", 200
