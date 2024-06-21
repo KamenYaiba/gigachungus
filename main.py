@@ -17,9 +17,7 @@ app = Flask(__name__)
 
 @app.route('/'+WEBHOOK, methods=["POST"])
 def webhook():
-    update = json.load(request.stream.read().decode("utf-8"))
-    log_req(update.get('from').get('language_code'))
-    #bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
 
