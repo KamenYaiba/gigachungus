@@ -1,16 +1,14 @@
 from flask import Flask, request
 import telebot
-from telebot import types
 from config import(report_a_command, report_b_command, invalid_format_warning,wrong_info,
                    menu, greet, report_a_manual)
 from keys import TOKEN, WEBHOOK, REQUEST_KEYS
 from functions import(report_a_request, report_b_request, language, error_log, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
-import json
 
+from handlers import bot, start_handler
 
-bot = telebot.TeleBot(TOKEN, threaded=False)
 
 app = Flask(__name__)
 
@@ -24,10 +22,7 @@ def webhook():
 @bot.message_handler(commands=['start', 'help', 'menu'])
 def start_command(msg):
     try:
-        id = msg.chat.id
-        lang = language(id)
-        bot.send_photo(id, photo=open(greet[lang], 'rb'), caption=menu[lang])
-        log(msg)
+        start_handler(msg)
     except Exception as e:
         error_log(e)
 
@@ -48,7 +43,7 @@ def change_lang_to_en(msg):
     try:
         id = msg.chat.id
         remove_from_arabic_users(id)
-        bot.reply_to(msg, "Language changed to English '''hhhh'''", parse_mode='MarkdownV2')
+        bot.reply_to(msg, "Language changed to English", parse_mode='MarkdownV2')
         log(msg)
     except Exception as e:
         error_log(e)
