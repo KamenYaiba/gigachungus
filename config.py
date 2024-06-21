@@ -137,8 +137,8 @@ ce
 '''
 report_b_manual = [b_ar, b_en]
 
-c_ar = '''انسخ رقم الطلب واملأ [الإستمارة](https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link) لاستلام التقرير'''
-c_en = 'fill the [form](https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link)'
+c_ar = '''انسخ رقم الطلب واملأ [الإستمارة](/https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link)/ لاستلام التقرير'''
+c_en = 'fill the [form]/(https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link/)'
 report_c_manual = [c_ar, c_en]
 
 report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
