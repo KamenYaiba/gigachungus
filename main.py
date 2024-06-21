@@ -43,7 +43,6 @@ def change_lang_to_ar(msg):
         error_log(e)
 
 
-
 @bot.message_handler(commands=['en'])
 def change_lang_to_en(msg):
     try:
@@ -137,6 +136,11 @@ def repreq():
     else:
         bot.send_message(chat_id=chat_id, text=report)
     return 'report sent', 200
+
+
+@app.route('/', methods=['GET'])
+def test():
+    return 'hi mio'
 
 
 if __name__ == '__main__':
