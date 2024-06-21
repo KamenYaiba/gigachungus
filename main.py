@@ -12,57 +12,42 @@ app = Flask(__name__)
 
 @app.route('/'+WEBHOOK, methods=["POST"])
 def webhook():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    try:
+        bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    except Exception as e:
+        error_log(e)
+        return 422
     return "!", 200
 
 
 @bot.message_handler(commands=['start', 'help', 'menu'])
 def start_command(msg):
-    try:
-        start_handler(msg).asd()
-    except Exception as e:
-        error_log(e)
+    start_handler(msg).asg()
 
 
 @bot.message_handler(commands=['ar', 'en'])
 def change_lang_to_ar(msg):
-    try:
-        change_language_handler(msg)
-    except Exception as e:
-        error_log(e)
+    change_language_handler(msg)
 
 
 @bot.message_handler(regexp='^' + report_a_command+'|'+report_b_command)
 def report_a(msg):
-    try:
-        report_ab_handler(msg)
-    except Exception as e:
-        bot.reply_to(msg, "An Error occurred")
-        error_log(e)
+    report_ab_handler(msg)
 
 
 @bot.message_handler(commands=["reportc"])
 def report_c(msg):
-    try:
-        report_c_handler(msg)
-    except Exception as e:
-        error_log(e)
+    report_c_handler(msg)
 
 
 @bot.message_handler(commands=["reporta", "reportb", "reportc"])
 def report_manual(msg):
-    try:
-        report_manual_handler(msg)
-    except Exception as e:
-        error_log(e)
+    report_manual_handler(msg)
 
 
 @app.route('/reportreq', methods=["POST"])
 def api_report_request():
-    try:
-        api_report_request_handler(request.json)
-    except Exception as e:
-        error_log(e)
+    api_report_request_handler(request.json)
 
 
 if __name__ == '__main__':
