@@ -44,7 +44,8 @@ def report_ab_handler(msg):
 
 def report_c_handler(chat_id):
     rep_id = generate_rep_id(chat_id)
-    bot.send_message(chat_id=chat_id, text=rep_id)
+    formatted_rep_id = f'<code>{rep_id}</code>'
+    bot.send_message(chat_id=chat_id, text=rep_id, parse_mode='HTML')
 
 
 def report_manual_handler(msg):
