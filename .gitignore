@@ -5,3 +5,5 @@
 /reportsLog.txt
 /arabic_users.json
 /api_req_logs.txt
+__pycache__/
+.idea/
