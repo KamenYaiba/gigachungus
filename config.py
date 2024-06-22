@@ -18,7 +18,7 @@ logo = '''(\\  /)
 signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 
 arabic_form_link = 'https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link'
-arabic_form = f'<a href="{arabic_form_link}">الإسنمارة</a>'
+arabic_form = f'<a href="{arabic_form_link}">الإستمارة</a>'
 english_form = 'https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link'
 
 arabic_menu = '''/en To change the language to English
@@ -141,7 +141,7 @@ ce
 '''
 report_b_manual = [b_ar, b_en]
 
-c_ar = 'انسخ رقم الطلب واملأ' + arabic_form
+c_ar = 'انسخ رقم الطلب واملأ ' + arabic_form
 c_en = 'fill the form'
 report_c_manual = [c_ar, c_en]
 
