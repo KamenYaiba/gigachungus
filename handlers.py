@@ -1,5 +1,5 @@
 from config import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
-                    language_changed, report_b_manual, report_c_manual)
+                    language_changed, report_b_manual, report_c_manual, admin_username)
 from keys import TOKEN, REQUEST_KEYS
 from functions import (report_a_request, report_b_request, language, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
@@ -11,7 +11,7 @@ bot = telebot.TeleBot(TOKEN, threaded=False)
 
 
 def start_handler(msg):
-    chat_id = msg.chat.id
+    chat_id = msg.chat.id.to
     lang = language(chat_id)
     bot.send_photo(chat_id, photo=open(greet[lang], 'rb'), caption=menu[lang])
     log(msg)
@@ -44,7 +44,7 @@ def report_ab_handler(msg):
 
 def report_c_handler(chat_id):
     rep_id = generate_rep_id(chat_id)
-    formatted_rep_id = f'```{rep_id}```'
+    formatted_rep_id = f'`Click to copy\n{rep_id}`'
     bot.send_message(chat_id=chat_id, text=formatted_rep_id, parse_mode='MarkdownV2')
 
 
@@ -81,3 +81,7 @@ def api_report_request_handler(request_json):
     else:
         bot.send_message(chat_id=chat_id, text=report)
     return 'report sent', 200
+
+
+def unexpected_error(chat_id):
+    bot.send_message(chat_id=chat_id, text=f'An unexpected error occurred\n contact {admin_username} if you need help')
