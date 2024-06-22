@@ -50,7 +50,6 @@ def report_c_handler(chat_id):
 def report_manual_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
-    text = ''
     if msg.text.endswith('c'):
         text = report_c_manual[lang]
         report_c_handler(chat_id)
