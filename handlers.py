@@ -55,7 +55,7 @@ def report_manual_handler(msg):
         report_c_handler(chat_id)
     else:
         text = report_a_manual[lang] if msg.text.endswith('a') else report_b_manual[lang]
-    bot.send_message(chat_id=chat_id, text=text, parse_mode='MarkdownV2')
+    bot.send_message(chat_id=chat_id, text=text, parse_mode='HTML')
 
 
 def api_report_request_handler(request_json):
