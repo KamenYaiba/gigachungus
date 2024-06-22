@@ -3,8 +3,8 @@ import telebot
 from config import report_a_command, report_b_command
 from keys import WEBHOOK
 from functions import error_log
-from handlers import (bot, start_handler, change_language_handler, report_ab_handler, report_c_handler,
-                      report_manual_handler, api_report_request_handler)
+from handlers import (bot, start_handler, change_language_handler, report_ab_handler,
+                      report_manual_handler, api_report_request_handler, unexpected_error)
 
 
 app = Flask(__name__)
@@ -12,10 +12,13 @@ app = Flask(__name__)
 
 @app.route('/'+WEBHOOK, methods=["POST"])
 def webhook():
+    update = telebot.types.Update.de_json(request.stream.read().decode("utf-8"))
+    chat_id = update.message.chat.id
     try:
-        bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+        bot.process_new_updates([update])
     except Exception as e:
         error_log(e)
+        unexpected_error(chat_id)
     return "!", 200
 
 
