@@ -34,11 +34,6 @@ def report_a(msg):
     report_ab_handler(msg)
 
 
-@bot.message_handler(commands=["reportc"])
-def report_c(msg):
-    report_c_handler(msg)
-
-
 @bot.message_handler(commands=["reporta", "reportb", "reportc"])
 def report_manual(msg):
     report_manual_handler(msg)
