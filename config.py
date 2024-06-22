@@ -1,3 +1,6 @@
+admin_username = '@mio66mio'
+admin_id = 0
+
 arabic_users_json = 'arabic_users.json'
 
 MAX_GPA = 4.00
