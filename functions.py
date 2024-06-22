@@ -120,16 +120,17 @@ def report_a_request(msg, lang):
     try:
         points = abs(float(inputs[0]))
         passed_hours = abs(int(inputs[1]))
-        semester = abs(int(inputs[2]))
+        registered_hours = abs(int(inputs[2]))
+        semester = abs(int(inputs[3]))
         max_points = passed_hours * MAX_GPA
         mj = 'cs'
         if (points > max_points or passed_hours > TOTAL_HOURS[mj] or semester > NUMBER_OF_SEMESTERS
-                or points < passed_hours):
+                or points < passed_hours or passed_hours > registered_hours):
             return -2
     except Exception as e:
         print(e)
         return -1
-    return get_report(config.report_a, passed_hours, points, semester, lang, registered_hours=passed_hours, mj=mj)+ f'{config.signature}'
+    return get_report(config.report_a, passed_hours, points, semester, lang, registered_hours=registered_hours, mj=mj)+ f'{config.signature}'
 
 
 def report_b_request(msg, lang):
@@ -191,7 +192,7 @@ def report_formatter(type, gpa, exact_gpa, max_gpa, passed_hours, failed_hours, 
     report = f'''{config.logo}
 {type[lang]}\n\n
 {config.GPA[lang]}{gpa}\n
-{config.exact_gpa[lang]}{exact_gpa}\n
+{config.exact_gpa[lang]}{exact_gpa:.16f}\n
 {config.max_gpa[lang]}{max_gpa}\n
 {config.points_lost[lang]}{lost_points}\n
 
@@ -253,4 +254,3 @@ def get_lost_points_wgpa(gpa, hours):
                 results.append(hypo_lost_point)
     if bool(results):
         return results
-
