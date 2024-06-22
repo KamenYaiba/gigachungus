@@ -11,7 +11,7 @@ bot = telebot.TeleBot(TOKEN, threaded=False)
 
 
 def start_handler(msg):
-    chat_id = msg.chat.id.to
+    chat_id = msg.chat.id
     lang = language(chat_id)
     bot.send_photo(chat_id, photo=open(greet[lang], 'rb'), caption=menu[lang])
     log(msg)
@@ -84,4 +84,4 @@ def api_report_request_handler(request_json):
 
 
 def unexpected_error(chat_id):
-    bot.send_message(chat_id=chat_id, text=f'An unexpected error occurred\n contact {admin_username} if you need help')
+    bot.send_message(chat_id=chat_id, text=f'An unexpected error occurred\ncontact {admin_username} if you need help')
