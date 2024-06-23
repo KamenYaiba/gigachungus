@@ -4,7 +4,7 @@ admin_id = 0
 arabic_users_json = 'arabic_users.json'
 
 MAX_GPA = 4.00
-TOTAL_HOURS = {'cs': 134, 'ce': 138, 'cba': 135, 'cad': 138, 'cl': 137}
+TOTAL_HOURS = {'cs': 134, 'ce': 138, 'cba': 135, 'cad': 138, 'cl': 137, 'ch': 133}
 NUMBER_OF_SEMESTERS = 8
 COP_HOURS = 10
 PLAN = {1: 18, 2: 35, 3: 53, 4: 72, 5: 89, 6: 107, 7: 124, 8: 134}
@@ -19,10 +19,6 @@ EN = 1
 logo = '''(\\  /)
 (•ㅅ•)'''
 signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
-
-arabic_form_link = 'https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link'
-arabic_form = f'<a href="{arabic_form_link}">الإستمارة</a>'
-english_form = 'https://docs.google.com/forms/d/e/1FAIpQLSeEd8LNfdi6TKc9Mh4vzKrURpKacafCkIjH6--9jrdyMS5AWg/viewform?usp=sf_link'
 
 arabic_menu = '''/en To change the language to English
 
@@ -144,9 +140,10 @@ ce
 '''
 report_b_manual = [b_ar, b_en]
 
-c_ar = 'انسخ رقم الطلب واملأ ' + arabic_form
-c_en = 'fill the form'
-report_c_manual = [c_ar, c_en]
+
+arabic_form_link = 'https://t.me/PSUgpa_bot/formar'
+english_form_link = 'https://t.me/PSUgpa_bot/formen'
+report_c_manual = ['انسخ رقم الطلب واملأ ' + f'<a href="{arabic_form_link}">الإستمارة</a>', 'Copy the request number and fill ' + f'<a href="{arabic_form_link}">The form</a>']
 
 report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
                'Log in to your Edugate account\nAcademic > Academic Transcript']
@@ -197,6 +194,7 @@ wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! 
 no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم',
                    'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
 language_changed = ["لقد غيرت اللغة إلى العربية", "Language changed to English"]
+click2copy = ['اضغط للنسخ', 'Click to copy']
 
 lil_bunny = '''(\\__/) 
 (•ㅅ•) 
