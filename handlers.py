@@ -1,5 +1,5 @@
 from config import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
-                    language_changed, report_b_manual, report_c_manual, admin_username)
+                    language_changed, report_b_manual, report_c_manual, admin_username, click2copy)
 from keys import TOKEN, REQUEST_KEYS
 from functions import (report_a_request, report_b_request, language, log, report_log,
                        add_to_arabic_users, remove_from_arabic_users)
@@ -42,9 +42,9 @@ def report_ab_handler(msg):
         report_log(chat_id, report)
 
 
-def report_c_handler(chat_id):
+def report_c_handler(chat_id, lang):
     rep_id = generate_rep_id(chat_id)
-    formatted_rep_id = f'`Click to copy\n{rep_id}`'
+    formatted_rep_id = f'{click2copy[lang]}\n`{rep_id}`'
     bot.send_message(chat_id=chat_id, text=formatted_rep_id, parse_mode='MarkdownV2')
 
 
@@ -53,7 +53,7 @@ def report_manual_handler(msg):
     lang = language(chat_id)
     if msg.text.endswith('c'):
         text = report_c_manual[lang]
-        report_c_handler(chat_id)
+        report_c_handler(chat_id, lang)
     else:
         text = report_a_manual[lang] if msg.text.endswith('a') else report_b_manual[lang]
     bot.send_message(chat_id=chat_id, text=text, parse_mode='HTML')
