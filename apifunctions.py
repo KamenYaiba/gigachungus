@@ -14,6 +14,7 @@ from _datetime import datetime
 def generate_rep_id(chat_id):
     with open('rep_ids.json', 'r') as file:
         ids = json.load(file)
+    destroy_rep_id(ids, chat_id)
     rep_id = random_string()
     ids[rep_id] = chat_id
     with open('rep_ids.json', 'w') as file:
@@ -24,7 +25,7 @@ def generate_rep_id(chat_id):
 def log_req(req):
     dt = datetime.now(pytz.timezone('Asia/Riyadh'))
     with open('api_req_logs.txt', 'a') as file:
-        file.write(dt.strftime("%A %d %B %Y %H:%M")+ '\t' + str(req) +'\n\n')
+        file.write(dt.strftime("%A %d %B %Y %H:%M") + '\t' + str(req) +'\n\n')
 
 
 def get_chat_id(rep_id):
@@ -32,19 +33,19 @@ def get_chat_id(rep_id):
         ids = json.load(file)
     if rep_id not in ids:
         return None
-    id = ids.pop(rep_id)
+    chat_id = ids.pop(rep_id)
     with open('rep_ids.json', 'w') as file:
         json.dump(ids, file)
-    return id
+    return chat_id
 
 
-def destroy_rep_id(rep_id):
-    with open('rep_ids.json', 'r') as file:
-        ids = json.load(file)
-    del ids[rep_id]
-    with open('rep_ids.json', 'w') as file:
-        json.dump(ids, file)
-    return 'destroyed'
+def destroy_rep_id(ids, chat_id):
+    if chat_id in ids.values():
+        for key in ids.keys():
+            if ids[key] == chat_id:
+                del ids[key]
+                return True
+    return False
 
 
 def random_string():
@@ -71,5 +72,6 @@ def report_c_request(data, lang):
         print(e)
         return -1
     return get_report(config.report_a, passed_hours, points, semester, lang, registered_hours=passed_hours, mj=mj)
+
 
 
