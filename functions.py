@@ -119,8 +119,8 @@ def report_a_request(msg, lang):
     inputs = [i.strip() for i in inputs]
     try:
         points = abs(float(inputs[0]))
-        passed_hours = abs(int(inputs[1]))
-        registered_hours = abs(int(inputs[2]))
+        registered_hours = abs(int(inputs[1]))
+        passed_hours = abs(int(inputs[2]))
         semester = abs(int(inputs[3]))
         max_points = passed_hours * MAX_GPA
         mj = 'cs'
@@ -139,8 +139,8 @@ def report_b_request(msg, lang):
     inputs = [i.strip() for i in inputs]
     try:
         points = abs(float(inputs[0]))
-        passed_hours = abs(int(inputs[1]))
-        registered_hours = abs(int(inputs[2]))
+        registered_hours = abs(int(inputs[1]))
+        passed_hours = abs(int(inputs[2]))
         semester = abs(int(inputs[3]))
         max_points = passed_hours * MAX_GPA
         mj = inputs[4]
@@ -220,7 +220,7 @@ def error_log(e):
 
 def log(msg):
     dt = datetime.now(pytz.timezone('Asia/Riyadh'))
-    id = msg.chat.id
+    chat_id = msg.chat.id
     usr = msg.from_user.username
     if usr is None:
         usr = '-'
@@ -228,7 +228,7 @@ def log(msg):
     if name is None:
         name = '-'
     with open('logs.txt', 'a') as file:
-        file.write(dt.strftime("%A %d %B %Y %H:%M") + '\t' + str(id) + '\t' + str(usr) + '\t' + str(name) + '\t' + msg.text + '\n\n')
+        file.write(dt.strftime("%A %d %B %Y %H:%M") + '\t' + str(chat_id) + '\t' + str(usr) + '\t' + str(name) + '\t' + msg.text + '\n\n')
 
 
 def report_log(id, report):
