@@ -44,7 +44,7 @@ def report_manual(msg):
 
 @app.route('/reportreq', methods=["POST"])
 def api_report_request():
-    api_report_request_handler(request.json)
+    return api_report_request_handler(request.json)
 
 
 if __name__ == '__main__':
