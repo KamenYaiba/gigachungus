@@ -143,7 +143,7 @@ report_b_manual = [b_ar, b_en]
 
 arabic_form_link = 'https://t.me/PSUgpa_bot/formar'
 english_form_link = 'https://t.me/PSUgpa_bot/formen'
-report_c_manual = ['انسخ رقم الطلب واملأ ' + f'<a href="{arabic_form_link}">الإستمارة</a>', 'Copy the request number and fill ' + f'<a href="{arabic_form_link}">The form</a>']
+report_c_manual = ['انسخ رقم الطلب واملأ ' + f'<a href="{arabic_form_link}">الإستمارة</a>', 'Copy the request number and fill ' + f'<a href="{english_form_link}">The form</a>']
 
 report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
                'Log in to your Edugate account\nAcademic > Academic Transcript']

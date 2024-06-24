@@ -18,7 +18,7 @@ function sendFormResponse() {
       'register_hours': data[2].trim(),
       'passed_hours': data[3].trim(),
       'semester': data[4].trim(),
-      'college': data[5].substring(0, data[4].indexOf('(')).trim(),
+      'college': data[5].substring(0, data[5].indexOf('(')).trim(),
       'sem_GPA': data[6].trim(),
       'next_sem_hours': data[7].trim()
 
