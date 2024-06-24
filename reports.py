@@ -1,12 +1,11 @@
-import json
 from config import(
     MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command, NUMBER_OF_SEMESTERS)
-import text
+import text, config
 from helpingfunctions import (round_to_nearest_quarter, add_to_arabic_users, remove_from_arabic_users, language,
                               get_lost_points, get_exact_gpa, get_gpa, in_deans_list, with_honors,
                               get_max_possible_gpa, get_avg_remaining_hours, get_remaining_hours,
                               get_remaining_semesters, get_rank_estimation, get_hours_percentage,
-                              is_on_plan, get_max_boost, error_log, log, report_log, get_lost_points_wgpa)
+                              is_on_plan, get_max_boost, error_log, log, report_log, get_college)
 
 
 def report_a_request(msg, lang):
@@ -54,15 +53,17 @@ def get_report(type, passed_hours, points, semester, lang, registered_hours, mj)
     exact_gpa = get_exact_gpa(points, registered_hours)
     gpa = round(exact_gpa, 2)
     lost_points = get_lost_points(points, registered_hours)
+    college = get_college(mj, lang)
     max_gpa = get_max_possible_gpa(lost_points, failed_hours, mj)
     honors = with_honors(gpa)
     highest_honors = with_honors(max_gpa)
     hours_percentage = get_hours_percentage(passed_hours, mj)
     rank_estimation = get_rank_estimation(gpa)
-    on_plan = is_on_plan(semester, passed_hours, lang)
+    on_plan = is_on_plan(semester, passed_hours, lang, mj)
     remaining_hours = get_remaining_hours(passed_hours, mj)
     remaining_semesters = get_remaining_semesters(semester)
     avg_hours = get_avg_remaining_hours(remaining_semesters, remaining_hours)
+    max_boost = get_max_boost(points, registered_hours, config.DEFAULT_SEMESTER_HOURS)
 
     return report_formatter(
         type=type,

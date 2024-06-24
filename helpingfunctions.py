@@ -1,12 +1,9 @@
-import json
+import pytz, traceback, json
+from _datetime import datetime
 from config import(
     MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command,
-    arabic_users_json, NUMBER_OF_SEMESTERS, COP_HOURS, HONORS, DEANS_LIST_MIN, PLAN)
-import text
-from text import(hrs, advanced_by, late_by, no, yes, college, AR, EN,)
-from _datetime import datetime
-import pytz
-import traceback
+    arabic_users_json, NUMBER_OF_SEMESTERS, COP_HOURS, HONORS, DEANS_LIST_MIN, PLANS)
+from text import(hrs, advanced_by, late_by, no, yes, colleges_dict, college, AR, EN)
 
 
 def round_to_nearest_quarter(num):
@@ -102,10 +99,17 @@ def get_hours_percentage(hours, mj):
     return str(round(((hours / TOTAL_HOURS[mj])*100), 1)) + '%'
 
 
-def is_on_plan(semester, hours, lang):
+def get_college(col, lang):
+    col = col.lower()
+    if col not in colleges_dict:
+        return 'not found'
+    return colleges_dict[col][lang]
+
+
+def is_on_plan(semester, hours, lang, mj):
     if semester == 0:
         return '-'
-    delta = hours - PLAN[semester]
+    delta = hours - PLANS[mj][semester]
     if delta == 0:
         return 'On Plan'
     if delta > 0:
@@ -166,3 +170,4 @@ def get_lost_points_wgpa(gpa, hours):
                 results.append(hypo_lost_point)
     if bool(results):
         return results
+
