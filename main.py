@@ -2,7 +2,7 @@ from flask import Flask, request
 import telebot
 from config import report_a_command, report_b_command
 from keys import WEBHOOK
-from functions import error_log
+from reports import error_log
 from handlers import (bot, start_handler, change_language_handler, report_ab_handler,
                       report_manual_handler, api_report_request_handler, unexpected_error)
 

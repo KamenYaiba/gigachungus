@@ -1,8 +1,9 @@
-from config import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
-                    language_changed, report_b_manual, report_c_manual, admin_username, click2copy)
+from text import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
+                  language_changed, report_b_manual, report_c_manual, click2copy)
+from config import (admin_username)
 from keys import TOKEN, REQUEST_KEYS
-from functions import (report_a_request, report_b_request, language, log, report_log,
-                       add_to_arabic_users, remove_from_arabic_users)
+from reports import (report_a_request, report_b_request, language, log, report_log,
+                     add_to_arabic_users, remove_from_arabic_users)
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
 import telebot
 
