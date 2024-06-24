@@ -1,13 +1,20 @@
 AR = 0
 EN = 1
 
-cs = []
-cl = []
-ce = []
-cba = []
-cad = []
-ch = []
-Colleges = {}
+cs = ['كلية علوم الحاسب والمعلومات', 'College of Computer and Information Sciences']
+cl = ['كلية القانون', 'College of Law']
+ce = ['كلية الهندسة', 'College of Engineering']
+cb = ['كلية إدارة الأعمال', 'College of Business Administration']
+cd = ['كلية العمارة والتصميم', 'College of Architecture and Design']
+ch = ['كلية الإنسانيات والعلوم', 'College of Humanities and Sciences']
+colleges_dict = {
+    'cs': cs,
+    'cl': cl,
+    'ce': ce,
+    'cb': cb,
+    'cd': cd,
+    'ch': ch
+}
 
 logo = '''(\\  /)
 (•ㅅ•)'''
