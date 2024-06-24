@@ -1,4 +1,4 @@
-function myFunction() {
+function sendFormResponse() {
   var wb = SpreadsheetApp.getActiveSpreadsheet();
   var sh = wb.getSheetByName("FR");
   if (sh) {
@@ -15,8 +15,13 @@ function myFunction() {
       'key': secret,
       'repid': data[0].trim(),
       'points': data[1].trim(),
-      'passed_hours': data[2].trim(),
-      'semester': data[3].trim()
+      'register_hours': data[2].trim(),
+      'passed_hours': data[3].trim(),
+      'semester': data[4].trim(),
+      'college': data[5].substring(0, data[4].indexOf('(')).trim(),
+      'sem_GPA': data[6].trim(),
+      'next_sem_hours': data[7].trim()
+
     };
     var setup = {
       'method': 'POST',
