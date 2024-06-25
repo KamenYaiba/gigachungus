@@ -99,4 +99,8 @@ def get_report_extended(report_type, passed_hours, points, semester, lang, regis
     deans_list = in_deans_list(sem_gpa, lang)
     gpa_change = get_gpa_change(sem_gpa, gpa, lang)
 
+    next_sem_on_plan = is_on_plan(semester, passed_hours+next_semester_hours, lang, mj)
+    next_sem_avg_hours = get_avg_remaining_hours(remaining_semesters-1, remaining_hours-next_semester_hours)
+    next_sem_hours_percentage = get_hours_percentage(passed_hours+next_semester_hours, mj)
+
 
