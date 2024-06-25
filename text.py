@@ -1,3 +1,5 @@
+import config
+
 AR = 0
 EN = 1
 
@@ -16,11 +18,8 @@ colleges_dict = {
     'ch': ch
 }
 
-logo = '''(\\  /)
-(•ㅅ•)'''
-signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 
-arabic_menu = '''/en To change the language to English
+arabic_menu = '''/lang To change the language to English
 
 
 /reporta تقرير من نوع أ
@@ -36,7 +35,7 @@ arabic_menu = '''/en To change the language to English
 -سيتوجب عليك ملء استمارة 'Google Forms'\n
 '''
 
-english_menu = '''/ar لتغيير اللغة إلى العربية
+english_menu = '''/lang لتغيير اللغة إلى العربية
 
 
 /reporta Report type A
@@ -141,9 +140,8 @@ ce
 report_b_manual = [b_ar, b_en]
 
 
-arabic_form_link = 'https://t.me/PSUgpa_bot/formar'
-english_form_link = 'https://t.me/PSUgpa_bot/formen'
-report_c_manual = ['انسخ رقم الطلب واملأ ' + f'<a href="{arabic_form_link}">الإستمارة</a>', 'Copy the request number and fill ' + f'<a href="{english_form_link}">The form</a>']
+
+report_c_manual = ['انسخ رقم الطلب واضغط تشغيل' + f'<a href="{config.arabic_form_link}">.</a>', 'Copy the request number and click launch' + f'<a href="{config.english_form_link}">.</a>']
 
 report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
                'Log in to your Edugate account\nAcademic > Academic Transcript']
@@ -168,8 +166,8 @@ rank_estimation = ['الترتيب التقريبي(على كليتك): ', 'Roug
 hours_percentage = ['نسبة الساعات المجتازة: ', 'Credit Hours Completed Percentage: ']
 remaining_hours = ['الساعات المتبقية: ', 'Hours Remaining: ']
 remaining_semesters = ['الفصول المتبقية: ', 'Remaining Semesters: ']
-max_gpa_next_semester = ['أعلى معدل تراكمي ممكن بعد الفصل القادم(بافتراض أنك ستسجل 18 ساعة وتحصل على A+ في جميع المواد): ',
-    'The highest possible cumulative GPA after the next semester (assuming you register for 18 hours and get an A+ in all courses): ']
+max_gpa_next_semester = [f'أعلى معدل تراكمي ممكن بعد الفصل القادم(بافتراض أنك ستسجل {config.DEFAULT_SEMESTER_HOURS} ساعة وتحصل على  A+ في جميع المواد): ',
+    f'The highest possible cumulative GPA after the next semester (assuming you register for {config.DEFAULT_SEMESTER_HOURS} hours and get an A+ in all courses): ']
 failed_hours = ['ساعات الرسوب: ', 'Failed Hours: ']
 advanced_by = ['متقدم بـ ', 'Advanced by ']
 late_by = ['متأخر بـ ', 'Late by ']
