@@ -1,5 +1,6 @@
-import json, string, random, text
-from text import(AR, EN, hrs, advanced_by, late_by)
+import json, string, random, text, config
+import pytz
+from _datetime import datetime
 from config import (MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command, arabic_users_json,
                     NUMBER_OF_SEMESTERS, COP_HOURS, HONORS, DEANS_LIST_MIN)
 from helpingfunctions import (round_to_nearest_quarter, add_to_arabic_users, remove_from_arabic_users, language,
@@ -7,9 +8,6 @@ from helpingfunctions import (round_to_nearest_quarter, add_to_arabic_users, rem
                               get_max_possible_gpa, get_avg_remaining_hours, get_remaining_hours,
                               get_remaining_semesters, get_rank_estimation, get_hours_percentage,
                               is_on_plan, get_max_boost, error_log, log, report_log, get_college, get_gpa_change)
-from reports import get_report, in_deans_list
-import pytz
-from _datetime import datetime
 
 
 def generate_rep_id(chat_id):
@@ -102,5 +100,61 @@ def get_report_extended(report_type, passed_hours, points, semester, lang, regis
     next_sem_on_plan = is_on_plan(semester, passed_hours+next_semester_hours, lang, mj)
     next_sem_avg_hours = get_avg_remaining_hours(remaining_semesters-1, remaining_hours-next_semester_hours)
     next_sem_hours_percentage = get_hours_percentage(passed_hours+next_semester_hours, mj)
+
+    return report_formatter_extended(
+        report_type=report_type,
+        college=college,
+        exact_gpa=exact_gpa,
+        gpa=gpa,
+        max_gpa=max_gpa,
+        honors=honors,
+        highest_honors=highest_honors,
+        hours_percentage=hours_percentage,
+        rank_estimation=rank_estimation,
+        on_plan=on_plan,
+        remaining_hours=remaining_hours,
+        remaining_semesters=remaining_semesters,
+        avg_hours=avg_hours,
+        lang=lang,
+        failed_hours=failed_hours,
+        passed_hours=passed_hours,
+        lost_points=lost_points,
+        max_boost=max_boost,
+        deans_list=deans_list,
+        gpa_change=gpa_change,
+        next_sem_on_plan= next_sem_on_plan,
+        next_sem_avg_hours=next_sem_avg_hours,
+        next_sem_hours_percentage=next_sem_hours_percentage
+    ) + config.signature
+
+
+def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, passed_hours, failed_hours, remaining_hours,
+                              avg_hours, remaining_semesters, on_plan, lost_points, honors, highest_honors,
+                              hours_percentage,rank_estimation, lang, max_boost, deans_list, gpa_change,
+                              next_sem_on_plan, next_sem_avg_hours, next_sem_hours_percentage):
+
+    report = f'''{config.logo}
+{report_type[lang]}\n\n
+{text.college[lang]}{college}\n
+{text.GPA[lang]}{gpa}\n
+{text.exact_gpa[lang]}{exact_gpa:.16f}\n
+{text.max_gpa[lang]}{max_gpa}\n
+{text.points_lost[lang]}{lost_points}\n
+
+{text.passed_hours[lang]}{passed_hours}\n
+{text.failed_hours[lang]}{failed_hours}\n
+{text.remaining_hours[lang]}{remaining_hours}\n
+
+{text.hours_percentage[lang]}{hours_percentage}\n
+{text.avg_hours[lang]}{avg_hours}\n
+{text.remaining_semesters[lang]}{remaining_semesters}\n
+{text.on_plan[lang]}{on_plan}\n
+
+{text.honors[lang]}{honors}\n
+{text.highest_honors[lang]}{highest_honors}\n
+{text.rank_estimation[lang]}{rank_estimation}\n
+{text.max_boost_def[lang]}{max_boost}\n\n\n
+'''
+    return report
 
 

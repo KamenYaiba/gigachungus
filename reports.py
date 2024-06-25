@@ -1,7 +1,7 @@
 from config import(
     MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command, NUMBER_OF_SEMESTERS)
 import text, config
-from helpingfunctions import (round_to_nearest_quarter, add_to_arabic_users, remove_from_arabic_users, language,
+from helpingfunctions import (round_to_nearest_quarter, language,
                               get_lost_points, get_exact_gpa, get_gpa, in_deans_list, with_honors,
                               get_max_possible_gpa, get_avg_remaining_hours, get_remaining_hours,
                               get_remaining_semesters, get_rank_estimation, get_hours_percentage,
@@ -25,7 +25,7 @@ def report_a_request(msg, lang):
     except Exception as e:
         print(e)
         return -1
-    return get_report(text.report_a, passed_hours, points, semester, lang, registered_hours=registered_hours, mj=mj)+ f'{text.signature}'
+    return get_report(text.report_a, passed_hours, points, semester, lang, registered_hours=registered_hours, mj=mj)+ f'{config.signature}'
 
 
 def report_b_request(msg, lang):
@@ -45,7 +45,7 @@ def report_b_request(msg, lang):
     except Exception as e:
         print(e)
         return -1
-    return get_report(text.report_b, passed_hours, points, semester, lang, registered_hours, mj) + f'{text.signature}'
+    return get_report(text.report_b, passed_hours, points, semester, lang, registered_hours, mj) + f'{config.signature}'
 
 
 def get_report(report_type, passed_hours, points, semester, lang, registered_hours, mj):
@@ -91,9 +91,9 @@ def report_formatter(report_type, gpa, exact_gpa, max_gpa, college, passed_hours
                      remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage,
                      rank_estimation, lang, max_boost):
 
-    report = f'''{text.logo}
+    report = f'''{config.logo}
 {report_type[lang]}\n\n
-{text.college[lang]}{college}
+{text.college[lang]}{college}\n
 {text.GPA[lang]}{gpa}\n
 {text.exact_gpa[lang]}{exact_gpa:.16f}\n
 {text.max_gpa[lang]}{max_gpa}\n
