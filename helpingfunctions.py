@@ -10,26 +10,18 @@ def round_to_nearest_quarter(num):
     return round(num * 4) / 4
 
 
-def add_to_arabic_users(id):
+def change_language(chat_id):
     with open(arabic_users_json, 'r') as file:
         arabic_ids = json.load(file)
-    if id not in arabic_ids:
-        arabic_ids.append(id)
-        with open(arabic_users_json, 'w') as file:
-            json.dump(arabic_ids, file)
-        return True
-    return False
-
-
-def remove_from_arabic_users(id):
-    with open(arabic_users_json, 'r') as file:
-        arabic_ids = json.load(file)
-    if id in arabic_ids:
-        arabic_ids.remove(id)
-        with open(arabic_users_json, 'w') as file:
-            json.dump(arabic_ids, file)
-        return True
-    return False
+    if chat_id in arabic_ids:
+        arabic_ids.remove(chat_id)
+        lang = EN
+    else:
+        arabic_ids.append(chat_id)
+        lang = AR
+    with open(arabic_users_json, 'w') as file:
+        json.dump(arabic_ids, file)
+    return lang
 
 
 def language(id):

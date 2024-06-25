@@ -27,8 +27,8 @@ def start_command(msg):
     start_handler(msg)
 
 
-@bot.message_handler(commands=['ar', 'en'])
-def change_lang_to_ar(msg):
+@bot.message_handler(commands=['lang'])
+def change_language(msg):
     change_language_handler(msg)
 
 
