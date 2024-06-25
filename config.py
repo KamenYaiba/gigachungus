@@ -23,3 +23,10 @@ DEFAULT_SEMESTER_HOURS = 18
 
 report_a_command = 'a'
 report_b_command = 'b'
+
+arabic_form_link = 't.me/PSUgpa_bot/formar'
+english_form_link = 't.me/PSUgpa_bot/formen'
+
+logo = '''(\\  /)
+(•ㅅ•)'''
+signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
