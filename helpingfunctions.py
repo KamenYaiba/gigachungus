@@ -3,7 +3,7 @@ from _datetime import datetime
 from config import(
     MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command,
     arabic_users_json, NUMBER_OF_SEMESTERS, COP_HOURS, HONORS, DEANS_LIST_MIN, PLANS)
-from text import(hrs, advanced_by, late_by, no, yes, colleges_dict, college, AR, EN)
+from text import(hrs, advanced_by, late_by, no, yes, colleges_dict, college, AR, EN, down, up, constant)
 
 
 def round_to_nearest_quarter(num):
@@ -97,6 +97,14 @@ def get_rank_estimation(gpa):
 
 def get_hours_percentage(hours, mj):
     return str(round(((hours / TOTAL_HOURS[mj])*100), 1)) + '%'
+
+
+def get_gpa_change(sem_gpa, gpa, lang):
+    if sem_gpa < gpa:
+        return down[lang]
+    if sem_gpa > gpa:
+        return up[lang]
+    return constant[lang]
 
 
 def get_college(col, lang):

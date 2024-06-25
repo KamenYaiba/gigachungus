@@ -195,6 +195,13 @@ no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: ال
 language_changed = ["لقد غيرت اللغة إلى العربية", "Language changed to English"]
 click2copy = ['اضغط للنسخ', 'Click to copy']
 
+after_next_semester = ['--------------\nبعد الفصل القادم', '--------------\nAfter next semester']
+gpa_change = ['تغير المعدل: ', 'GPA change: ']
+down = ['↙↙', '↘↘']
+up = ['↖↖', '↗↗']
+constant = ['⬅⬅', '➡➡']
+
+
 yes = [' نعم 🎉', ' Yes! 🎉']
 no = [' لا', ' No']
 

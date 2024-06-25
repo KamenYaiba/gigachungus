@@ -48,7 +48,7 @@ def report_b_request(msg, lang):
     return get_report(text.report_b, passed_hours, points, semester, lang, registered_hours, mj) + f'{text.signature}'
 
 
-def get_report(type, passed_hours, points, semester, lang, registered_hours, mj):
+def get_report(report_type, passed_hours, points, semester, lang, registered_hours, mj):
     failed_hours = registered_hours - passed_hours
     exact_gpa = get_exact_gpa(points, registered_hours)
     gpa = round(exact_gpa, 2)
@@ -66,7 +66,8 @@ def get_report(type, passed_hours, points, semester, lang, registered_hours, mj)
     max_boost = get_max_boost(points, registered_hours, config.DEFAULT_SEMESTER_HOURS)
 
     return report_formatter(
-        type=type,
+        report_type=report_type,
+        college=college,
         exact_gpa=exact_gpa,
         gpa=gpa,
         max_gpa=max_gpa,
@@ -81,13 +82,18 @@ def get_report(type, passed_hours, points, semester, lang, registered_hours, mj)
         lang=lang,
         failed_hours=failed_hours,
         passed_hours=passed_hours,
-        lost_points=lost_points
+        lost_points=lost_points,
+        max_boost=max_boost
     )
 
 
-def report_formatter(type, gpa, exact_gpa, max_gpa, passed_hours, failed_hours, remaining_hours, avg_hours, remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage, rank_estimation, lang):
+def report_formatter(report_type, gpa, exact_gpa, max_gpa, college, passed_hours, failed_hours, remaining_hours, avg_hours,
+                     remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage,
+                     rank_estimation, lang, max_boost):
+
     report = f'''{text.logo}
-{type[lang]}\n\n
+{report_type[lang]}\n\n
+{text.college[lang]}{college}
 {text.GPA[lang]}{gpa}\n
 {text.exact_gpa[lang]}{exact_gpa:.16f}\n
 {text.max_gpa[lang]}{max_gpa}\n
@@ -104,7 +110,8 @@ def report_formatter(type, gpa, exact_gpa, max_gpa, passed_hours, failed_hours, 
 
 {text.honors[lang]}{honors}\n
 {text.highest_honors[lang]}{highest_honors}\n
-{text.rank_estimation[lang]}{rank_estimation}\n\n\n
+{text.rank_estimation[lang]}{rank_estimation}\n
+{text.max_boost_def[lang]}{max_boost}\n\n\n
 '''
     return report
 
