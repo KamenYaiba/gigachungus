@@ -76,7 +76,7 @@ def report_c_request(data, lang):
             return -2
 
     except Exception as e:
-        print(e)
+        error_log(e)
         return -1
     return get_report_extended(text.report_c, passed_hours, points, semester, lang, registered_hours, mj, sem_gpa, next_sem_hours, next_sem_lost_points)
 
