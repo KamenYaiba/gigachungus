@@ -69,7 +69,7 @@ def api_report_request_handler(request_json):
     lang = language(chat_id)
     report = report_c_request(request_json, lang)
     if report == -1:
-        bot.send_message(chat_id=chat_id, text='An unexpected error occurred')
+        unexpected_error(chat_id)
         return 'bad request', 400
     elif report == -2:
         bot.send_message(chat_id=chat_id, text=wrong_info[lang])
