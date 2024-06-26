@@ -60,24 +60,30 @@ def report_c_request(data, lang):
         registered_hours = data.get('registered_hours')
         passed_hours = int(data.get('passed_hours'))
         semester = int(data.get('semester'))
-        max_points = passed_hours * MAX_GPA
         mj = data.get('college')
         sem_gpa = float(data.get('sem_GPA'))
         next_sem_hours = int(data.get('next_sem_hours'))
+        next_sem_lost_points = float(data.get('next_sem_lost_points'))
 
-        if any(var is None for var in(points, registered_hours, passed_hours, semester, mj, sem_gpa, next_sem_hours)):
+        if any(var is None for var in(points, registered_hours, passed_hours, semester, mj, sem_gpa, next_sem_hours, next_sem_lost_points)):
             return -1
+
+        next_sem_max_points = next_sem_hours * MAX_GPA
+        max_points = passed_hours * MAX_GPA
         if (points > max_points or semester > NUMBER_OF_SEMESTERS or passed_hours > TOTAL_HOURS[mj]
                 or passed_hours > registered_hours or points < passed_hours or mj not in TOTAL_HOURS
-                or sem_gpa<0 or next_sem_hours<0):
+                or sem_gpa < 0 or next_sem_hours < 0 or next_sem_lost_points > next_sem_max_points):
             return -2
+
     except Exception as e:
         print(e)
         return -1
-    return get_report_extended(text.report_c, passed_hours, points, semester, lang, registered_hours=passed_hours, mj=mj)
+    return get_report_extended(text.report_c, passed_hours, points, semester, lang, registered_hours, mj, sem_gpa, next_sem_hours, next_sem_lost_points)
 
 
-def get_report_extended(report_type, passed_hours, points, semester, lang, registered_hours, mj, sem_gpa, next_semester_hours):
+def get_report_extended(report_type, passed_hours, points, semester, lang, registered_hours, mj,
+                        sem_gpa, next_semester_hours, next_sem_lost_points):
+
     failed_hours = registered_hours - passed_hours
     exact_gpa = get_exact_gpa(points, registered_hours)
     gpa = round(exact_gpa, 2)
@@ -152,6 +158,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 {text.honors[lang]}{honors}\n
 {text.highest_honors[lang]}{highest_honors}\n
 {text.rank_estimation[lang]}{rank_estimation}\n
+{text.after_next_semester[lang]}\n
 {text.max_boost_def[lang]}{max_boost}\n\n\n
 '''
     return report

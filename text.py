@@ -139,8 +139,6 @@ ce
 '''
 report_b_manual = [b_ar, b_en]
 
-
-
 report_c_manual = ['انسخ رقم الطلب واضغط تشغيل' + f'<a href="{config.arabic_form_link}">.</a>', 'Copy the request number and click launch' + f'<a href="{config.english_form_link}">.</a>']
 
 report_help = ['سجل الدخول في بوابة النظام الأكاديمي"Edugate"\nأكاديمي>السجل الأكاديمي',
