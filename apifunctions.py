@@ -57,7 +57,7 @@ def random_string():
 def report_c_request(data, lang):
     try:
         points = float(data.get('points'))
-        registered_hours = data.get('registered_hours')
+        registered_hours = int(data.get('registered_hours'))
         passed_hours = int(data.get('passed_hours'))
         semester = int(data.get('semester'))
         mj = data.get('college')
