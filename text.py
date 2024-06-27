@@ -176,10 +176,16 @@ exact_semester_gpa = ['المعدل الفصلي بالضبط: ', 'Exact semeste
 semester_failed_hours = ['ساعات الرسوب هذا الفصل: ', 'Semester failed hours: ']
 points = ['النقاط التي حصلت عليها: ', 'Points gained: ']
 semester_points = ['النقاط التي حصلت عليها هذا الفصل: ', 'Points gained this semester: ']
-max_boost_def = ['أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل 18 ساعة وتحصل علىA + في جميع المواد): ',
-                 'Max possible GPA boost (assuming you register for 18 hours and get A+ in all courses next semester): ']
-max_boost = ['أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم: ',
-             'Max possible GPA boost by the end of next semester: ']
+max_boost_def = ['أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل 18 ساعة وتحصل علىA + في جميع المواد فس الفصل القادم): ',
+                 'Max possible GPA boost (Assuming you register for 18 hours and get A+ in all courses next semester): ']
+
+
+def max_boost(ns_hours):
+    text = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك ستسجل {ns_hours} ساعة وتحصل علىA + في جميع المواد): ',
+             f'Max possible GPA boost by the end of next semester(Assuming you register for {ns_hours} hours and get A+ in all courses): ']
+    return text
+
+
 college = ['الكلية: ', 'College: ']
 
 invalid_format_warning = ['خطأ في تنسيق الطلب! يرجى اتباع التنسيق المقدم لكم',

@@ -82,7 +82,7 @@ def report_c_request(data, lang):
 
 
 def get_report_extended(report_type, passed_hours, points, semester, lang, registered_hours, mj,
-                        sem_gpa, next_semester_hours, next_sem_lost_points):
+                        sem_gpa, ns_hours, ns_lost_points):
 
     failed_hours = registered_hours - passed_hours
     exact_gpa = get_exact_gpa(points, registered_hours)
@@ -98,13 +98,25 @@ def get_report_extended(report_type, passed_hours, points, semester, lang, regis
     remaining_hours = get_remaining_hours(passed_hours, mj)
     remaining_semesters = get_remaining_semesters(semester)
     avg_hours = get_avg_remaining_hours(remaining_semesters, remaining_hours)
-    max_boost = get_max_boost(points, registered_hours, next_semester_hours)
+    max_boost = get_max_boost(points, registered_hours, ns_hours)
     deans_list = in_deans_list(sem_gpa, lang)
     gpa_change = get_gpa_change(sem_gpa, gpa, lang)
 
-    next_sem_on_plan = is_on_plan(semester, passed_hours+next_semester_hours, lang, mj)
-    next_sem_avg_hours = get_avg_remaining_hours(remaining_semesters-1, remaining_hours-next_semester_hours)
-    next_sem_hours_percentage = get_hours_percentage(passed_hours+next_semester_hours, mj)
+    ns_points = points + ns_hours*MAX_GPA - ns_lost_points
+    ns_registered_hours = registered_hours + ns_hours
+    ns_exact_gpa = get_exact_gpa(ns_points, ns_registered_hours)
+    ns_gpa = round(ns_exact_gpa, 2)
+    ns_max_gpa = get_max_possible_gpa(lost_points + ns_lost_points, failed_hours, mj)
+    ns_sem_gpa = round(get_exact_gpa(ns_points-points, ns_hours), 2)
+    ns_honors = with_honors(ns_gpa)
+    ns_highest_honors = with_honors(ns_max_gpa)
+    ns_remaining_hours = get_remaining_hours(passed_hours+ns_hours, mj)
+    ns_remaining_semesters = remaining_semesters - 1
+    ns_on_plan = is_on_plan(semester+1, passed_hours+ns_hours, lang, mj)
+    ns_avg_hours = get_avg_remaining_hours(ns_remaining_semesters, remaining_hours-ns_hours)
+    ns_hours_percentage = get_hours_percentage(passed_hours+ns_hours, mj)
+    ns_deans_list = in_deans_list(ns_sem_gpa, lang)
+    ns_gpa_change = get_gpa_change(ns_sem_gpa, ns_gpa, lang)
 
     return report_formatter_extended(
         report_type=report_type,
@@ -127,16 +139,31 @@ def get_report_extended(report_type, passed_hours, points, semester, lang, regis
         max_boost=max_boost,
         deans_list=deans_list,
         gpa_change=gpa_change,
-        next_sem_on_plan= next_sem_on_plan,
-        next_sem_avg_hours=next_sem_avg_hours,
-        next_sem_hours_percentage=next_sem_hours_percentage
+
+        ns_hours=ns_hours,
+        ns_gpa=ns_gpa,
+        ns_exact_gpa=ns_exact_gpa,
+        ns_max_gpa= ns_max_gpa,
+        ns_sem_gpa=ns_sem_gpa,
+        ns_honors=ns_honors,
+        ns_highest_honors=ns_highest_honors,
+        ns_remaining_hours=ns_remaining_hours,
+        ns_remaining_semesters=ns_remaining_semesters,
+        ns_deans_list=ns_deans_list,
+        ns_gpa_change=ns_gpa_change,
+        ns_on_plan= ns_on_plan,
+        ns_avg_hours=ns_avg_hours,
+        ns_hours_percentage=ns_hours_percentage
+
     ) + config.signature
 
 
 def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, passed_hours, failed_hours, remaining_hours,
                               avg_hours, remaining_semesters, on_plan, lost_points, honors, highest_honors,
-                              hours_percentage,rank_estimation, lang, max_boost, deans_list, gpa_change,
-                              next_sem_on_plan, next_sem_avg_hours, next_sem_hours_percentage):
+                              hours_percentage,rank_estimation, lang, max_boost, deans_list, gpa_change, ns_hours,
+                              ns_gpa, ns_exact_gpa, ns_sem_gpa, ns_max_gpa, ns_on_plan, ns_avg_hours, ns_hours_percentage,
+                              ns_honors, ns_highest_honors, ns_remaining_hours, ns_remaining_semesters, ns_deans_list,
+                              ns_gpa_change):
 
     report = f'''{config.logo}
 {report_type[lang]}\n\n
@@ -159,7 +186,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 {text.highest_honors[lang]}{highest_honors}\n
 {text.rank_estimation[lang]}{rank_estimation}\n
 {text.after_next_semester[lang]}\n
-{text.max_boost_def[lang]}{max_boost}\n\n\n
+{text.max_boost(ns_hours)[lang]}{max_boost}\n\n\n
 '''
     return report
 
