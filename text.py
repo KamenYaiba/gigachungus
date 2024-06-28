@@ -196,8 +196,9 @@ click2copy = ['اضغط للنسخ', 'Click to copy']
 
 
 def after_next_semester(sem_hours, lost_points):
-    return [f'{"-"*25}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
-            f'{"-"*25}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
+    b = '-'*25
+    return [f'{b}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
+            f'{b}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
 
 
 
