@@ -199,7 +199,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 **{text.GPA[lang]}**{ns_gpa}\n
 **{text.exact_gpa[lang]}**{ns_exact_gpa:.16f}\n
 **{text.max_gpa[lang]}**{ns_max_gpa}\n
-**{max_boost[lang]}**{max_boost}
+**{text.max_boost[lang]}**{max_boost}
 **{text.points[lang]}**{ns_points}\n
 
 **{text.passed_hours[lang]}**{ns_tot_pas_hours}\n
