@@ -196,8 +196,8 @@ click2copy = ['اضغط للنسخ', 'Click to copy']
 
 
 def after_next_semester(sem_hours, lost_points):
-    return [f'{'-'*25}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
-            f'{'-'*25}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
+    return [f'{"-"*25}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
+            f'{"-"*25}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
 
 
 
@@ -226,4 +226,4 @@ giga_bunny = '''.      (\\__/)
       / ╰    ╯ \\ /   \\>'''
 
 
-
+after_next_semester(12, 0)
