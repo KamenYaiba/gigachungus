@@ -170,7 +170,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
                               ns_honors, ns_highest_honors, ns_remaining_hours, ns_remaining_semesters, ns_deans_list,
                               ns_gpa_change, ns_lost_points, ns_points, ns_tot_pas_hours):
 
-    report = f'''{config.logo}
+    report = f'''>{config.logo}
 **{report_type[lang]}**\n\n
 **{text.college[lang]}**{college}\n
 
