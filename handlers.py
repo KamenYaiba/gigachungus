@@ -75,7 +75,7 @@ def api_report_request_handler(request_json):
         bot.send_message(chat_id=chat_id, text=wrong_info[lang])
         return 'wrong info', 400
     else:
-        bot.send_message(chat_id=chat_id, text=report)
+        bot.send_message(chat_id=chat_id, text=report, parse_mode="MarkdownV2")
     return 'report sent', 200
 
 
