@@ -153,6 +153,7 @@ GPA = ['المعدل: ', 'GPA: ']
 passed_hours = ['الساعات المجتازة: ', 'Hours Passed: ']
 max_gpa = ['أعلى معدل يمكن التخرج به: ', 'Max possible graduation GPA: ']
 exact_gpa = ['المعدل بالضبط: ', 'Exact GPA: ']
+sem_gpa = ['المعدل الفصلي: ', 'Semester GPA: ']
 honors = ['مرتبة الشرف: ', 'Honors: ']
 highest_honors = ['أعلى مرتبة شرف يمكن تحقيقها: ', 'Highest possible honors: ']
 points_lost = ['النقاط التي خُسرت: ', 'Points lost: ']
@@ -176,15 +177,11 @@ exact_semester_gpa = ['المعدل الفصلي بالضبط: ', 'Exact semeste
 semester_failed_hours = ['ساعات الرسوب هذا الفصل: ', 'Semester failed hours: ']
 points = ['النقاط التي حصلت عليها: ', 'Points gained: ']
 semester_points = ['النقاط التي حصلت عليها هذا الفصل: ', 'Points gained this semester: ']
-max_boost_def = ['أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل 18 ساعة وتحصل علىA + في جميع المواد فس الفصل القادم): ',
-                 'Max possible GPA boost (Assuming you register for 18 hours and get A+ in all courses next semester): ']
+max_boost_def = [f'أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل {config.DEFAULT_SEMESTER_HOURS} ساعة وتحصل علىA + في جميع المواد فس الفصل القادم): ',
+                 f'Max possible GPA boost (Assuming you register for {config.DEFAULT_SEMESTER_HOURS} hours and get A+ in all courses next semester): ']
 
-
-def max_boost(ns_hours):
-    text = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك ستسجل {ns_hours} ساعة وتحصل علىA + في جميع المواد): ',
-             f'Max possible GPA boost by the end of next semester(Assuming you register for {ns_hours} hours and get A+ in all courses): ']
-    return text
-
+max_boost = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك سوتحصل على A+ في جميع المواد): ',
+             f'Max possible GPA boost (Assuming you get A+ in all courses): ']
 
 college = ['الكلية: ', 'College: ']
 
@@ -197,7 +194,13 @@ no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: ال
 language_changed = ["لقد غيرت اللغة إلى العربية", "Language changed to English"]
 click2copy = ['اضغط للنسخ', 'Click to copy']
 
-after_next_semester = ['--------------\nبعد الفصل القادم', '--------------\nAfter next semester']
+
+def after_next_semester(sem_hours, lost_points):
+    return [f'{'-'*25}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
+            f'{'-'*25}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
+
+
+
 gpa_change = ['تغير المعدل: ', 'GPA change: ']
 down = ['↙↙', '↘↘']
 up = ['↖↖', '↗↗']
@@ -221,4 +224,6 @@ giga_bunny = '''.      (\\__/)
        ｜( 王 ﾉ〈   
        /ﾐ`ー―彡\\  
       / ╰    ╯ \\ /   \\>'''
+
+
 
