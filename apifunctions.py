@@ -169,50 +169,49 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
                               ns_gpa, ns_exact_gpa, ns_sem_gpa, ns_max_gpa, ns_on_plan, ns_avg_hours, ns_hours_percentage,
                               ns_honors, ns_highest_honors, ns_remaining_hours, ns_remaining_semesters, ns_deans_list,
                               ns_gpa_change, ns_lost_points, ns_points, ns_tot_pas_hours):
+    report = f'''<pre>{config.logo}</pre>
+    <b>{report_type[lang]}</b>\n\n
+    <b>{text.college[lang]}</b>{college}\n
 
-    report = f'''>{config.logo}
-**{report_type[lang]}**\n\n
-**{text.college[lang]}**{college}\n
+    <b>{text.GPA[lang]}</b>{gpa}\n
+    <b>{text.exact_gpa[lang]}</b>{exact_gpa:.16f}\n
+    <b>{text.max_gpa[lang]}</b>{max_gpa}\n
 
-**{text.GPA[lang]}**{gpa}\n
-**{text.exact_gpa[lang]}**{exact_gpa:.16f}\n
-**{text.max_gpa[lang]}**{max_gpa}\n
+    <b>{text.sem_gpa[lang]}</b>{ns_gpa}\n
+    <b>{text.points_lost[lang]}</b>{lost_points}\n
 
-**{text.sem_gpa[lang]}**{ns_gpa}\n
-**{text.points_lost[lang]}**{lost_points}\n
+    <b>{text.passed_hours[lang]}</b>{passed_hours}\n
+    <b>{text.failed_hours[lang]}</b>{failed_hours}\n
+    <b>{text.remaining_hours[lang]}</b>{remaining_hours}\n
 
-**{text.passed_hours[lang]}**{passed_hours}\n
-**{text.failed_hours[lang]}**{failed_hours}\n
-**{text.remaining_hours[lang]}**{remaining_hours}\n
+    <b>{text.hours_percentage[lang]}</b>{hours_percentage}\n
+    <b>{text.avg_hours[lang]}</b>{avg_hours}\n
+    <b>{text.remaining_semesters[lang]}</b>{remaining_semesters}\n
+    <b>{text.on_plan[lang]}</b>{on_plan}\n
 
-**{text.hours_percentage[lang]}**{hours_percentage}\n
-**{text.avg_hours[lang]}**{avg_hours}\n
-**{text.remaining_semesters[lang]}**{remaining_semesters}\n
-**{text.on_plan[lang]}**{on_plan}\n
+    <b>{text.honors[lang]}</b>{honors}\n
+    <b>{text.highest_honors[lang]}</b>{highest_honors}\n
+    <b>{text.rank_estimation[lang]}</b>{rank_estimation}\n\n
 
-**{text.honors[lang]}**{honors}\n
-**{text.highest_honors[lang]}**{highest_honors}\n
-**{text.rank_estimation[lang]}**{rank_estimation}\n\n
+    <b>{text.after_next_semester(ns_hours, ns_lost_points)[lang]}</b>\n\n
 
-**{text.after_next_semester(ns_hours, ns_lost_points)[lang]}**\n\n
+    <b>{text.GPA[lang]}</b>{ns_gpa}\n
+    <b>{text.exact_gpa[lang]}</b>{ns_exact_gpa:.16f}\n
+    <b>{text.max_gpa[lang]}</b>{ns_max_gpa}\n
+    <b>{text.max_boost[lang]}</b>{max_boost}
+    <b>{text.points[lang]}</b>{ns_points}\n
 
-**{text.GPA[lang]}**{ns_gpa}\n
-**{text.exact_gpa[lang]}**{ns_exact_gpa:.16f}\n
-**{text.max_gpa[lang]}**{ns_max_gpa}\n
-**{text.max_boost[lang]}**{max_boost}
-**{text.points[lang]}**{ns_points}\n
+    <b>{text.passed_hours[lang]}</b>{ns_tot_pas_hours}\n
+    <b>{text.failed_hours[lang]}</b>{failed_hours}\n
+    <b>{text.remaining_hours[lang]}</b>{ns_remaining_hours}\n
 
-**{text.passed_hours[lang]}**{ns_tot_pas_hours}\n
-**{text.failed_hours[lang]}**{failed_hours}\n
-**{text.remaining_hours[lang]}**{ns_remaining_hours}\n
+    <b>{text.hours_percentage[lang]}</b>{ns_hours_percentage}\n
+    <b>{text.avg_hours[lang]}</b>{ns_avg_hours}\n
+    <b>{text.remaining_semesters[lang]}</b>{ns_remaining_semesters}\n
+    <b>{text.on_plan[lang]}{ns_on_plan}</b>\n
 
-**{text.hours_percentage[lang]}**{ns_hours_percentage}\n
-**{text.avg_hours[lang]}**{ns_avg_hours}\n
-**{text.remaining_semesters[lang]}**{ns_remaining_semesters}\n
-**{text.on_plan[lang]}{ns_on_plan}**\n
-
-**{text.honors[lang]}{ns_honors}**\n
-**{text.highest_honors[lang]}**{ns_highest_honors}\n\n
+    <b>{text.honors[lang]}{ns_honors}</b>\n
+    <b>{text.highest_honors[lang]}</b>{ns_highest_honors}\n\n
 
 
 '''
