@@ -3,7 +3,7 @@ import telebot
 from config import report_a_command, report_b_command
 from keys import WEBHOOK
 from helpingfunctions import error_log
-from handlers import (bot, start_handler, change_language_handler, report_ab_handler,
+from handlers import (bot, start_handler, change_language_handler, report_ab_handler, about_handler,
                       report_manual_handler, api_report_request_handler, unexpected_error)
 
 
@@ -41,6 +41,10 @@ def report_a(msg):
 def report_manual(msg):
     report_manual_handler(msg)
 
+
+@bot.message_handler(commands=['about'])
+def about(msg):
+    about_handler(msg)
 
 @app.route('/reportreq', methods=["POST"])
 def api_report_request():

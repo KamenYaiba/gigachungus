@@ -1,3 +1,4 @@
+import config
 from text import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
                   language_changed, report_b_manual, report_c_manual, click2copy)
 from config import (admin_username)
@@ -77,6 +78,12 @@ def api_report_request_handler(request_json):
     else:
         bot.send_message(chat_id=chat_id, text=report, parse_mode="HTML")
     return 'report sent', 200
+
+
+def about_handler(msg):
+    chat_id = msg.chat.id
+    lang = language(id)
+    bot.send_message(chat_id=chat_id, text=config.ABOUT[lang])
 
 
 def unexpected_error(chat_id):
