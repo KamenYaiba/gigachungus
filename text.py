@@ -180,7 +180,7 @@ semester_points = ['النقاط التي حصلت عليها هذا الفصل:
 max_boost_def = [f'أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل {config.DEFAULT_SEMESTER_HOURS} ساعة وتحصل علىA + في جميع المواد فس الفصل القادم): ',
                  f'Max possible GPA boost (Assuming you register for {config.DEFAULT_SEMESTER_HOURS} hours and get A+ in all courses next semester): ']
 
-max_boost = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك سوتحصل على A+ في جميع المواد): ',
+max_boost = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك ستحصل على A+ في جميع المواد): ',
              f'Max possible GPA boost (Assuming you get A+ in all courses): ']
 
 college = ['الكلية: ', 'College: ']

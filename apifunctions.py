@@ -217,8 +217,8 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
     <b>{text.max_boost[lang]}</b>{max_boost}
     <b>{text.gpa_change[lang]}</b>{ns_gpa_change}\n
     <b>{text.honors[lang]}{ns_honors}</b>\n
-    <b>{text.highest_honors[lang]}</b>{ns_highest_honors}\n\n
-    <b>{text.deans_list[lang]}</b>{ns_deans_list}\n
+    <b>{text.highest_honors[lang]}</b>{ns_highest_honors}\n
+    <b>{text.deans_list[lang]}</b>{ns_deans_list}\n\n
 
 
 '''
