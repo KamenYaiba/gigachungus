@@ -35,7 +35,7 @@ def report_ab_handler(msg):
     elif report == -2:
         bot.reply_to(msg, text=wrong_info[lang])
     else:
-        bot.send_message(chat_id=chat_id, text=report)
+        bot.send_message(chat_id=chat_id, text=report, parse_mode="HTML")
         report_log(chat_id, report)
 
 
