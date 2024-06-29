@@ -23,7 +23,7 @@ def report_a_request(msg, lang):
                 or points < passed_hours or passed_hours > registered_hours):
             return -2
     except Exception as e:
-        print(e)
+        error_log(e)
         return -1
     return get_report(text.report_a, passed_hours, points, semester, lang, registered_hours=registered_hours, mj=mj)+ f'{config.signature}'
 
@@ -43,7 +43,7 @@ def report_b_request(msg, lang):
                 or passed_hours > registered_hours or points < passed_hours or mj not in TOTAL_HOURS):
             return -2
     except Exception as e:
-        print(e)
+        error_log(e)
         return -1
     return get_report(text.report_b, passed_hours, points, semester, lang, registered_hours, mj) + f'{config.signature}'
 
