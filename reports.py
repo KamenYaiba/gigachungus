@@ -90,28 +90,27 @@ def get_report(report_type, passed_hours, points, semester, lang, registered_hou
 def report_formatter(report_type, gpa, exact_gpa, max_gpa, college, passed_hours, failed_hours, remaining_hours, avg_hours,
                      remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage,
                      rank_estimation, lang, max_boost):
+    report = f'''<pre>{config.logo}</pre>
+<b>{report_type[lang]}\n\n
+<b><b>{text.college[lang]}</b>{college}\n
+<b><b>{text.GPA[lang]}</b>{gpa}\n
+<b><b>{text.exact_gpa[lang]}</b>{exact_gpa:.16f}\n
+<b>{text.max_gpa[lang]}</b>{max_gpa}\n
+<b>{text.points_lost[lang]}</b>{lost_points}\n
 
-    report = f'''{config.logo}
-{report_type[lang]}\n\n
-{text.college[lang]}{college}\n
-{text.GPA[lang]}{gpa}\n
-{text.exact_gpa[lang]}{exact_gpa:.16f}\n
-{text.max_gpa[lang]}{max_gpa}\n
-{text.points_lost[lang]}{lost_points}\n
+<b>{text.passed_hours[lang]}</b>{passed_hours}\n
+<b>{text.failed_hours[lang]}</b>{failed_hours}\n
+<b>{text.remaining_hours[lang]}</b>{remaining_hours}\n
 
-{text.passed_hours[lang]}{passed_hours}\n
-{text.failed_hours[lang]}{failed_hours}\n
-{text.remaining_hours[lang]}{remaining_hours}\n
+<b>{text.hours_percentage[lang]}</b>{hours_percentage}\n
+<b>{text.avg_hours[lang]}</b>{avg_hours}\n
+<b>{text.remaining_semesters[lang]}</b>{remaining_semesters}\n
+<b>{text.on_plan[lang]}</b>{on_plan}\n
 
-{text.hours_percentage[lang]}{hours_percentage}\n
-{text.avg_hours[lang]}{avg_hours}\n
-{text.remaining_semesters[lang]}{remaining_semesters}\n
-{text.on_plan[lang]}{on_plan}\n
-
-{text.honors[lang]}{honors}\n
-{text.highest_honors[lang]}{highest_honors}\n
-{text.rank_estimation[lang]}{rank_estimation}\n
-{text.max_boost_def[lang]}{max_boost}\n\n\n
+<b>{text.honors[lang]}</b>{honors}\n
+<b>{text.highest_honors[lang]}</b>{highest_honors}\n
+<b>{text.rank_estimation[lang]}</b>{rank_estimation}\n
+<b>{text.max_boost_def[lang]}</b>{max_boost}\n\n\n
 '''
     return report
 
