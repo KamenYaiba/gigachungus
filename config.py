@@ -5,7 +5,7 @@ arabic_users_json = 'arabic_users.json'
 
 MAX_GPA = 4.00
 
-
+UNIVERSITY = [' جامعة الأمير سلطان', ' Prince Sultan University']
 NUMBER_OF_SEMESTERS = 8
 COP_HOURS = 10
 cs_plan = {1: 18, 2: 35, 3: 53, 4: 72, 5: 89, 6: 107, 7: 124, 8: 134}

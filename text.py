@@ -146,8 +146,8 @@ report_help = ['سجل الدخول في بوابة النظام الأكادي�
 report_help_photo = ['arabic_report_help.png', 'english_report_help.png']
 
 greet = ['arabic_greeting.png', 'english_greeting.png']
-report_a = ['تقرير من نوع أ\n----------------', 'Report Type A\n----------------']
-report_b = ['تقرير من نوع ب\n----------------', 'Report Type B\n----------------']
+report_a = ['تقرير من نوع أ\n--------------------------------', 'Report Type A\n--------------------------------']
+report_b = ['تقرير من نوع ب\n--------------------------------', 'Report Type B\n--------------------------------']
 report_c = ['تقرير من نوع ج\n----------------', 'Report Type C\n----------------']
 GPA = ['المعدل: ', 'GPA: ']
 passed_hours = ['الساعات المجتازة: ', 'Hours Passed: ']
@@ -196,7 +196,7 @@ click2copy = ['اضغط للنسخ', 'Click to copy']
 
 
 def after_next_semester(sem_hours, lost_points):
-    b = '-'*25
+    b = '-'*50
     return [f'{b}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
             f'{b}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
 
