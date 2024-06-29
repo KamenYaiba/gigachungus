@@ -172,7 +172,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 
     report = f'''<pre>{config.logo}</pre>
 <b>{report_type[lang]}</b>\n\n
-<b>{text.uni}</b>{config.UNIVERSITY}\n
+<b>{text.uni}</b>{config.UNIVERSITY[lang]}\n
 <b>{text.college[lang]}</b>{college}\n
 
 <b>{text.GPA[lang]}</b>{gpa}\n
@@ -199,12 +199,13 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 
 <b>{text.after_next_semester(ns_hours, ns_lost_points)[lang]}</b>\n
 
+<b>{text.max_boost[lang]}</b>{max_boost}\n
+
 <b>{text.sem_gpa [lang]}</b>{ns_sem_gpa}\n
 <b>{text.gpa_change[lang]}</b>{ns_gpa_change}\n
 <b>{text.GPA[lang]}</b>{ns_gpa}\n
 <b>{text.exact_gpa[lang]}</b>{ns_exact_gpa:.16f}\n
 <b>{text.max_gpa[lang]}</b>{ns_max_gpa}\n
-
 
 <b>{text.points[lang]}</b>{ns_points}\n
 <b>{text.passed_hours[lang]}</b>{ns_tot_pas_hours}\n
@@ -216,7 +217,6 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 <b>{text.remaining_semesters[lang]}</b>{ns_remaining_semesters}\n
 <b>{text.on_plan[lang]}{ns_on_plan}</b>\n
 
-<b>{text.max_boost[lang]}</b>{max_boost}\n
 <b>{text.honors[lang]}{ns_honors}</b>\n
 <b>{text.highest_honors[lang]}</b>{ns_highest_honors}\n
 <b>{text.deans_list[lang]}</b>{ns_deans_list}\n\n
