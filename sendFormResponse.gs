@@ -11,16 +11,19 @@ function sendFormResponse() {
     
 
     var url = 'https://ahmadammarjr.pythonanywhere.com/reportreq';
+    var next_sem_lost_points = '0';
+    if (data[8].trim() != '') next_sem_lost_points = data[8].trim();
     var payload = {
-      'key': secret,
+      'key': SECRET,
       'repid': data[0].trim(),
       'points': data[1].trim(),
-      'register_hours': data[2].trim(),
+      'registered_hours': data[2].trim(),
       'passed_hours': data[3].trim(),
       'semester': data[4].trim(),
-      'college': data[5].substring(0, data[5].indexOf('(')).trim(),
+      'college': data[5].substring(0, data[5].indexOf('(')).trim().toLowerCase(),
       'sem_GPA': data[6].trim(),
-      'next_sem_hours': data[7].trim()
+      'next_sem_hours': data[7].trim(),
+      'next_sem_lost_points': next_sem_lost_points
 
     };
     var setup = {
