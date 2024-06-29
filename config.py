@@ -37,5 +37,3 @@ ABOUT = [
     f'مشروع My PSU GPA  ويعرف كذلك بـ gigaChungus هو مشروع مفتوح المصدر مصمم لمساعدة طلاب جامعة الأمير سلطان على حساب تقدمهم الأكاديمي والتخطيط لدراستهم بناء على الأرقام والحسابات\n\nالكود متوفر بالكامل على غيت هب: {GITHUB_LINK}\nالمساهمة مفتوحة ومقدرة (^-^)\n لمناقشة ما يخص المشروع أو لطلب المساعدة تواصل مع {admin_username}',
     f'The My PSU GPA project, also known as GigaChungus, is an open-source project designed to help Prince Sultan University students track their academic progress and plan their studies based on numbers and projections.\n\nThe complete code is available on GitHub: {GITHUB_LINK}\nContributions are open and appreciated (^-^)\nTo discuss the project or if you need support please contact {admin_username}'
 ]
-
-print(ABOUT[1])

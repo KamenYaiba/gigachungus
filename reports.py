@@ -9,7 +9,7 @@ from helpingfunctions import (round_to_nearest_quarter, language,
 
 
 def report_a_request(msg, lang):
-    msg = msg.strip(report_a_command).strip()
+    msg = msg.removeprefix(report_a_command).strip
     inputs = msg.split("\n")
     inputs = [i.strip() for i in inputs]
     try:
@@ -29,7 +29,7 @@ def report_a_request(msg, lang):
 
 
 def report_b_request(msg, lang):
-    msg = msg.strip(report_b_command).strip()
+    msg = msg.removeprefix(report_b_command).strip()
     inputs = msg.split("\n")
     inputs = [i.strip() for i in inputs]
     try:
@@ -39,8 +39,8 @@ def report_b_request(msg, lang):
         semester = abs(int(inputs[3]))
         max_points = passed_hours * MAX_GPA
         mj = inputs[4]
-        if (points > max_points or semester > NUMBER_OF_SEMESTERS or passed_hours > TOTAL_HOURS[mj]
-                or passed_hours > registered_hours or points < passed_hours or mj not in TOTAL_HOURS):
+        if (points > max_points or semester > NUMBER_OF_SEMESTERS or mj not in TOTAL_HOURS or passed_hours > TOTAL_HOURS[mj]
+                or passed_hours > registered_hours or points < passed_hours):
             return -2
     except Exception as e:
         error_log(e)
