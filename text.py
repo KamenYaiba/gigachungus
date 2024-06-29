@@ -100,7 +100,7 @@ b_ar = '''أرسل رسالة بالصيغة التالية:
 الساعات المسجلة
 الساعات المجتازة
 عدد الفصول التي أكملتها(لا تحسب التحضيري والفصول الصيفية)
-الكلية(القانون:cl، الهندسة:ce، إدارة الأعمال:cba، العمارة والتصميم:cad )
+الكلية(القانون: cl، الهندسة: ce، إدارة الأعمال: cb، العمارة والتصميم: cd، كلية الإنسانيات والعلوم: ch)
 ------------------------------------------
 
 مثال:
@@ -122,7 +122,7 @@ Points you gained
 Registered hours
 Passed Hours
 Number of semesters you've passed(PYP and summer semesters don't count)
-College(Law:cl, Engineering:ce, Business:cba, Architecture and Design:cad')
+College(Law: cl, Engineering: ce, Business: cb, Architecture and Design:cd, College of Humanities and Sciences: ch')
 ------------------------------------------
 
 Example:
@@ -201,7 +201,6 @@ def after_next_semester(sem_hours, lost_points):
             f'{b}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
 
 
-
 gpa_change = ['تغير المعدل: ', 'GPA change: ']
 down = ['↙↙', '↘↘']
 up = ['↖↖', '↗↗']
@@ -226,5 +225,3 @@ giga_bunny = '''.      (\\__/)
        /ﾐ`ー―彡\\  
       / ╰    ╯ \\ /   \\>'''
 
-
-after_next_semester(12, 0)
