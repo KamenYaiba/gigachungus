@@ -82,7 +82,7 @@ def api_report_request_handler(request_json):
 
 def about_handler(msg):
     chat_id = msg.chat.id
-    lang = language(id)
+    lang = language(chat_id)
     bot.send_message(chat_id=chat_id, text=config.ABOUT[lang])
 
 
