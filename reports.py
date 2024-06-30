@@ -93,10 +93,10 @@ def report_formatter(report_type, gpa, exact_gpa, max_gpa, college, passed_hours
     report = f'''<pre>{config.logo}</pre>
 <b>{report_type[lang]}</b>\n\n
 <b>{text.uni}</b>{config.UNIVERSITY[lang]}\n
-<b><b>{text.college[lang]}</b>{college}\n
+<b>{text.college[lang]}</b>{college}\n
 
-<b><b>{text.GPA[lang]}</b>{gpa}\n
-<b><b>{text.exact_gpa[lang]}</b>{exact_gpa:.16f}\n
+<b>{text.GPA[lang]}</b>{gpa}\n
+<b>{text.exact_gpa[lang]}</b>{exact_gpa:.16f}\n
 <b>{text.max_gpa[lang]}</b>{max_gpa}\n
 <b>{text.points_lost[lang]}</b>{lost_points}\n
 
