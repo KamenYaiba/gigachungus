@@ -68,3 +68,7 @@ ABOUT = [
 ]
 
 error_message = f'An unexpected error occurred\ncontact {admin_username} if you need help'
+
+report_help = ['أكاديمي >> السجل الأكاديمي', 'Academic >> Academic Registration']
+
+report_help_img = ['report_help_ar.png', 'report_help_en.png']

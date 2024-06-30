@@ -85,5 +85,11 @@ def about_handler(msg):
     bot.send_message(chat_id=chat_id, text=config.ABOUT[lang])
 
 
+def report_help_handler(msg):
+    chat_id = msg.chat.id
+    lang = language(chat_id)
+    bot.send_photo(chat_id, photo=open(config.report_help_img[lang], 'rb'), caption=config.report_help)
+
+
 def unexpected_error(chat_id):
     bot.send_message(chat_id=chat_id, text=config.error_message)

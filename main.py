@@ -4,7 +4,7 @@ from config import report_a_command, report_b_command
 from keys import WEBHOOK
 from helpingfunctions import error_log
 from handlers import (bot, start_handler, change_language_handler, report_ab_handler, about_handler,
-                      report_manual_handler, api_report_request_handler, unexpected_error)
+                      report_manual_handler, api_report_request_handler, unexpected_error, report_help_handler)
 
 
 app = Flask(__name__)
@@ -45,6 +45,12 @@ def report_manual(msg):
 @bot.message_handler(commands=['about'])
 def about(msg):
     about_handler(msg)
+
+
+@bot.message_handler(commands=['reporthelp'])
+def report_help(msg):
+    report_help_handler(msg)
+
 
 @app.route('/reportreq', methods=["POST"])
 def api_report_request():
