@@ -1,6 +1,6 @@
 import config
 from text import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
-                  language_changed, report_b_manual, report_c_manual, click2copy)
+                  language_changed, report_b_manual, report_c_manual, click2copy, no_such_college)
 from keys import TOKEN, REQUEST_KEYS
 from reports import report_a_request, report_b_request
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
@@ -33,6 +33,8 @@ def report_ab_handler(msg):
         bot.reply_to(msg, text=invalid_format_warning[lang])
     elif report == -2:
         bot.reply_to(msg, text=wrong_info[lang])
+    elif report == -3:
+        bot.reply_to(msg, text=no_such_college[lang])
     else:
         bot.send_message(chat_id=chat_id, text=report, parse_mode="HTML")
         report_log(chat_id, report)
@@ -88,7 +90,7 @@ def about_handler(msg):
 def report_help_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
-    bot.send_photo(chat_id, photo=open(config.report_help_img[lang], 'rb'), caption=config.report_help)
+    bot.send_photo(chat_id, photo=open(config.report_help_img[lang], 'rb'), caption=config.report_help[lang])
 
 
 def unexpected_error(chat_id):

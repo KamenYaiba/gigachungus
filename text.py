@@ -84,7 +84,7 @@ b_ar = f'''أرسل رسالة بالصيغة التالية:
 الساعات المسجلة
 الساعات المجتازة
 عدد الفصول التي أكملتها(لا تحسب التحضيري والفصول الصيفية)
-{config.colleges_ar}
+{config.colleges_acro[AR]}
 ------------------------------------------
 
 مثال:
@@ -106,7 +106,7 @@ Points you gained
 Registered hours
 Passed Hours
 Number of semesters you've passed(PYP and summer semesters don't count)
-{config.colleges_en}
+{config.colleges_acro[EN]}
 ------------------------------------------
 
 Example:
@@ -173,8 +173,8 @@ invalid_format_warning = ['خطأ في تنسيق الطلب! يرجى اتبا�
                           'Invalid format! please follow the format provided previously']
 wrong_info = ['البيانات التي قدمتها لا تبدو صحيحة! يرجى مراجعتها',
               "The data you provided doesn't seem to make sense! try again please"]
-no_such_college = ['لم نعثر على كليتك\ncl:القانون\nce: الهندسة\ncba: إدارة الأعمال\ncad: العمارة والتصميم',
-                   'No such college.\ncl: Law\nce: Engineering\ncba: Business\ncad: Architecture and Design']
+no_such_college = ['لم نعثر على كليتك\n\ncl:القانون\nce: الهندسة\ncb: إدارة الأعمال\ncd: العمارة والتصميم\nch: الإنسانيات والعلوم',
+                   'We couldn\'t find your college\n\ncl: Law\nce: Engineering\ncb: Business\ncd: Architecture and Design\nch:College of Humanities and Sciences']
 language_changed = ["لقد غيرت اللغة إلى العربية", "Language changed to English"]
 click2copy = ['اضغط للنسخ', 'Click to copy']
 

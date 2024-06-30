@@ -41,9 +41,9 @@ colleges_dict = {
     'ch': ch
 }
 
-colleges_en = 'College(Law: cl, Engineering: ce, Business: cb, Architecture and Design:cd, College of Humanities and Sciences: ch)'
+colleges_acro = ['الكلية(القانون: cl، الهندسة: ce، إدارة الأعمال: cb، العمارة والتصميم: cd، كلية الإنسانيات والعلوم: ch)',
+                 'College(Law: cl, Engineering: ce, Business: cb, Architecture and Design:cd, College of Humanities and Sciences: ch)']
 
-colleges_ar = 'الكلية(القانون: cl، الهندسة: ce، إدارة الأعمال: cb، العمارة والتصميم: cd، كلية الإنسانيات والعلوم: ch)'
 
 HONORS = {1: 3.50, 2: 3.25, 3: 3.00}
 DEANS_LIST_MIN = 3.75

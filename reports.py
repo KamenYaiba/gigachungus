@@ -40,6 +40,8 @@ def report_b_request(msg, lang):
         mj = inputs[4]
         if (points > max_points or semester > NUMBER_OF_SEMESTERS or mj not in TOTAL_HOURS or passed_hours > TOTAL_HOURS[mj]
                 or passed_hours > registered_hours or points < passed_hours):
+            if mj not in TOTAL_HOURS:
+                return -3
             return -2
     except Exception as e:
         error_log(e)
