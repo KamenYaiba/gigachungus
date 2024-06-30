@@ -3,22 +3,6 @@ import config
 AR = 0
 EN = 1
 
-cs = ['كلية علوم الحاسب والمعلومات', 'College of Computer and Information Sciences']
-cl = ['كلية القانون', 'College of Law']
-ce = ['كلية الهندسة', 'College of Engineering']
-cb = ['كلية إدارة الأعمال', 'College of Business Administration']
-cd = ['كلية العمارة والتصميم', 'College of Architecture and Design']
-ch = ['كلية الإنسانيات والعلوم', 'College of Humanities and Sciences']
-colleges_dict = {
-    'cs': cs,
-    'cl': cl,
-    'ce': ce,
-    'cb': cb,
-    'cd': cd,
-    'ch': ch
-}
-
-
 arabic_menu = '''/lang To change the language to English
 
 
@@ -93,14 +77,14 @@ a
 '''
 report_a_manual = [a_ar, a_en]
 
-b_ar = '''أرسل رسالة بالصيغة التالية:
+b_ar = f'''أرسل رسالة بالصيغة التالية:
 
 نوع التقرير(b)
 عدد النقاط التي حصلت عليها
 الساعات المسجلة
 الساعات المجتازة
 عدد الفصول التي أكملتها(لا تحسب التحضيري والفصول الصيفية)
-الكلية(القانون: cl، الهندسة: ce، إدارة الأعمال: cb، العمارة والتصميم: cd، كلية الإنسانيات والعلوم: ch)
+{config.colleges_ar}
 ------------------------------------------
 
 مثال:
@@ -115,14 +99,14 @@ ce
 
 /reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
 '''
-b_en = '''send a message in the following format:
+b_en = f'''send a message in the following format:
 
 Report Type(a)
 Points you gained
 Registered hours
 Passed Hours
 Number of semesters you've passed(PYP and summer semesters don't count)
-College(Law: cl, Engineering: ce, Business: cb, Architecture and Design:cd, College of Humanities and Sciences: ch')
+{config.colleges_en}
 ------------------------------------------
 
 Example:

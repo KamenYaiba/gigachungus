@@ -87,4 +87,4 @@ def about_handler(msg):
 
 
 def unexpected_error(chat_id):
-    bot.send_message(chat_id=chat_id, text=f'An unexpected error occurred\ncontact {admin_username} if you need help')
+    bot.send_message(chat_id=chat_id, text=config.error_message)
