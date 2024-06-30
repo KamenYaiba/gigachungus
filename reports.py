@@ -9,7 +9,7 @@ from helpingfunctions import (round_to_nearest_quarter, language,
 
 
 def report_a_request(msg, lang):
-    msg = msg.removeprefix(report_a_command).strip
+    msg = msg.removeprefix(report_a_command).strip()
     inputs = msg.split("\n")
     inputs = [i.strip() for i in inputs]
     try:
@@ -91,7 +91,7 @@ def report_formatter(report_type, gpa, exact_gpa, max_gpa, college, passed_hours
                      remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage,
                      rank_estimation, lang, max_boost):
     report = f'''<pre>{config.logo}</pre>
-<b>{report_type[lang]}\n\n
+<b>{report_type[lang]}</b>\n\n
 <b>{text.uni}</b>{config.UNIVERSITY[lang]}\n
 <b><b>{text.college[lang]}</b>{college}\n
 
