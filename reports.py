@@ -1,11 +1,10 @@
 from config import(
     MAX_GPA, TOTAL_HOURS, report_a_command, report_b_command, NUMBER_OF_SEMESTERS)
 import text, config
-from helpingfunctions import (round_to_nearest_quarter, language,
-                              get_lost_points, get_exact_gpa, get_gpa, in_deans_list, with_honors,
-                              get_max_possible_gpa, get_avg_remaining_hours, get_remaining_hours,
-                              get_remaining_semesters, get_rank_estimation, get_hours_percentage,
-                              is_on_plan, get_max_boost, error_log, log, report_log, get_college)
+from helpingfunctions import (get_lost_points, get_exact_gpa, with_honors, get_max_possible_gpa,
+                              get_avg_remaining_hours, get_remaining_hours, get_remaining_semesters,
+                              get_rank_estimation, get_hours_percentage, is_on_plan, get_max_boost,
+                              error_log, get_college)
 
 
 def report_a_request(msg, lang):

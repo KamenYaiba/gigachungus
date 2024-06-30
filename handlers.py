@@ -1,7 +1,6 @@
 import config
 from text import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
                   language_changed, report_b_manual, report_c_manual, click2copy)
-from config import (admin_username)
 from keys import TOKEN, REQUEST_KEYS
 from reports import (report_a_request, report_b_request, language, log, report_log)
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
