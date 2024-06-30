@@ -2,9 +2,9 @@ import config
 from text import (invalid_format_warning, wrong_info, menu, greet, report_a_manual,
                   language_changed, report_b_manual, report_c_manual, click2copy)
 from keys import TOKEN, REQUEST_KEYS
-from reports import (report_a_request, report_b_request, language, log, report_log)
+from reports import report_a_request, report_b_request
 from apifunctions import generate_rep_id, get_chat_id, report_c_request, log_req
-from helpingfunctions import change_language
+from helpingfunctions import change_language, language, log, report_log
 import telebot
 
 
