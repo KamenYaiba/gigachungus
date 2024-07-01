@@ -91,8 +91,8 @@ def get_report(report_type, passed_hours, points, semester, lang, registered_hou
 def report_formatter(report_type, gpa, exact_gpa, max_gpa, college, passed_hours, failed_hours, remaining_hours, avg_hours,
                      remaining_semesters, on_plan, lost_points, honors, highest_honors, hours_percentage,
                      rank_estimation, lang, max_boost):
-    report = f'''<pre>{config.logo}</pre>
-<b>{report_type[lang]}</b>\n\n
+    report = f'''<blockquote>{config.logo}</blockquote>
+<blockquote>{report_type[lang]}</blockquote>\n\n
 <b>{text.uni[lang]}</b>{config.UNIVERSITY[lang]}\n
 <b>{text.college[lang]}</b>{college}\n
 

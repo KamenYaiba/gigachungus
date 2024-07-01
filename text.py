@@ -130,13 +130,13 @@ report_help = ['سجل الدخول في بوابة النظام الأكادي�
 report_help_photo = ['arabic_report_help.png', 'english_report_help.png']
 
 greet = ['arabic_greeting.png', 'english_greeting.png']
-report_a = ['تقرير من نوع أ\n--------------------------------', 'Report Type A\n--------------------------------']
-report_b = ['تقرير من نوع ب\n--------------------------------', 'Report Type B\n--------------------------------']
-report_c = ['تقرير من نوع ج\n----------------', 'Report Type C\n----------------']
-GPA = ['المعدل: ', 'GPA: ']
+report_a = ['تقرير من نوع أ', 'Report Type A']
+report_b = ['تقرير من نوع ب', 'Report Type B']
+report_c = ['تقرير من نوع ج', 'Report Type C']
+GPA = ['المعدل التراكمي: ', 'Cumulative GPA: ']
 passed_hours = ['الساعات المجتازة: ', 'Hours Passed: ']
 max_gpa = ['أعلى معدل يمكن التخرج به: ', 'Max possible graduation GPA: ']
-exact_gpa = ['المعدل بالضبط: ', 'Exact GPA: ']
+exact_gpa = ['المعدل التراكمي بالضبط: ', 'Exact Cumulative GPA: ']
 sem_gpa = ['المعدل الفصلي: ', 'Semester GPA: ']
 honors = ['مرتبة الشرف: ', 'Honors: ']
 highest_honors = ['أعلى مرتبة شرف يمكن تحقيقها: ', 'Highest possible honors: ']
@@ -162,10 +162,10 @@ semester_failed_hours = ['ساعات الرسوب هذا الفصل: ', 'Semeste
 points = ['النقاط التي حصلت عليها: ', 'Points gained: ']
 semester_points = ['النقاط التي حصلت عليها هذا الفصل: ', 'Points gained this semester: ']
 max_boost_def = [f'أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل {config.DEFAULT_SEMESTER_HOURS} ساعة وتحصل علىA + في جميع المواد فس الفصل القادم): ',
-                 f'Max possible GPA boost (Assuming you register for {config.DEFAULT_SEMESTER_HOURS} hours and get A+ in all courses next semester): ']
+                 f'Max possible Cumulative GPA boost (Assuming you register for {config.DEFAULT_SEMESTER_HOURS} hours and get A+ in all courses next semester): ']
 
 max_boost = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك ستحصل على A+ في جميع المواد): ',
-             f'Max possible GPA boost (Assuming you get A+ in all courses): ']
+             f'Max possible Cumulative GPA boost (Assuming you get A+ in all courses): ']
 
 college = ['الكلية: ', 'College: ']
 
@@ -180,9 +180,8 @@ click2copy = ['اضغط للنسخ', 'Click to copy']
 
 
 def after_next_semester(sem_hours, lost_points):
-    b = '-'*50
-    return [f'{b}\nبعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
-            f'{b}\nAfter next semester ({sem_hours} hours, and {lost_points} lost points)\n']
+    return [f'بعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
+            f'After next semester ({sem_hours} hours, and {lost_points} lost points)\n']
 
 
 gpa_change = ['تغير المعدل: ', 'GPA change: ']

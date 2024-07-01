@@ -169,8 +169,8 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
                               ns_honors, ns_highest_honors, ns_remaining_hours, ns_remaining_semesters, ns_deans_list,
                               ns_gpa_change, ns_lost_points, ns_points, ns_tot_pas_hours):
 
-    report = f'''<pre>{config.logo}</pre>
-<b>{report_type[lang]}</b>\n\n
+    report = f'''<blockquote>{config.logo}</blockquote>
+<blockquote>{report_type[lang]}</blockquote>\n\n
 <b>{text.uni[lang]}</b>{config.UNIVERSITY[lang]}\n
 <b>{text.college[lang]}</b>{college}\n
 
@@ -196,7 +196,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 <b>{text.highest_honors[lang]}</b>{highest_honors}\n
 <b>{text.rank_estimation[lang]}</b>{rank_estimation}\n\n
 
-<b>{text.after_next_semester(ns_hours, ns_lost_points)[lang]}</b>\n
+<blockquote>{text.after_next_semester(ns_hours, ns_lost_points)[lang]}</blockquote>\n
 
 <b>{text.max_boost[lang]}</b>{max_boost}\n
 
