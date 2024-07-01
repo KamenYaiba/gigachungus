@@ -3,7 +3,7 @@ import telebot
 from config import report_a_command, report_b_command
 from keys import WEBHOOK
 from helpingfunctions import error_log
-from handlers import (bot, start_handler, change_language_handler, report_ab_handler, about_handler,
+from handlers import (bot, start_handler, change_language_handler, report_ab_handler, about_handler, menu_handler,
                       report_manual_handler, api_report_request_handler, unexpected_error, report_help_handler)
 
 
@@ -22,9 +22,14 @@ def webhook():
     return "!", 200
 
 
-@bot.message_handler(commands=['start', 'help', 'menu'])
+@bot.message_handler(commands=['start'])
 def start_command(msg):
     start_handler(msg)
+
+
+@bot.message_handler(commands=['menu'])
+def start_command(msg):
+    menu_handler(msg)
 
 
 @bot.message_handler(commands=['lang'])

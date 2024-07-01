@@ -18,9 +18,17 @@ def start_handler(msg):
     log(msg)
 
 
+def menu_handler(msg):
+    chat_id = msg.chat.id
+    lang = language(chat_id)
+    bot.send_message(chat_id, text=menu[lang])
+    log(msg)
+
+
 def change_language_handler(msg):
     chat_id = msg.chat.id
     bot.reply_to(msg, language_changed[change_language(chat_id)])
+    log(msg)
 
 
 def report_ab_handler(msg):
@@ -78,6 +86,7 @@ def api_report_request_handler(request_json):
         return 'wrong info', 400
     else:
         bot.send_message(chat_id=chat_id, text=report, parse_mode="HTML")
+        report_log(chat_id, report)
     return 'report sent', 200
 
 
@@ -85,12 +94,14 @@ def about_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
     bot.send_message(chat_id=chat_id, text=config.ABOUT[lang])
+    log(msg)
 
 
 def report_help_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
     bot.send_photo(chat_id, photo=open(config.report_help_img[lang], 'rb'), caption=config.report_help[lang])
+    log(msg)
 
 
 def unexpected_error(chat_id):
