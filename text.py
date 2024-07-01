@@ -3,36 +3,40 @@ import config
 AR = 0
 EN = 1
 
-arabic_menu = '''/lang To change the language to English
-
-
-/reporta تقرير من نوع أ
+arabic_menu = '''
+<blockquote>/reporta تقرير من نوع أ</blockquote>
 -الأسرع
 -خاص بطلاب كلية الحاسب\n
 
-/reportb تقرير من نوع ب
+<blockquote>/reportb تقرير من نوع ب</blockquote>
 - الأكثر شعبية
 - يجب عليك تحديد كليتك\n
 
-/reportc تقرير من نوع ج
+<blockquote>/reportc تقرير من نوع ج</blockquote>
 -الأكثر تفصيلا
 -سيتوجب عليك ملء استمارة 'Google Forms'\n
+
+
+
+/lang To change the language to English
 '''
 
-english_menu = '''/lang لتغيير اللغة إلى العربية
-
-
-/reporta Report type A
+english_menu = '''
+<blockquote>/reporta Report type A</blockquote>
 -Fastest
 -For CCIS students only\n
 
-/reportb Report type B
+<blockquote>/reportb Report type B</blockquote>
 -Most popular
 -Must specify your college\n
 
-/reportc Report Type C
+<blockquote>/reportc Report Type C</blockquote>
 -Most detailed
 -Must submit a Google Form
+
+
+
+/lang لتغيير اللغة إلى العربية
 '''
 menu = [arabic_menu, english_menu]
 a_ar = '''أرسل رسالة بالصيغة التالية:
