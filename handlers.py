@@ -14,14 +14,14 @@ bot = telebot.TeleBot(TOKEN, threaded=False)
 def start_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
-    bot.send_photo(chat_id, photo=open(greet[lang], 'rb'), caption=menu[lang])
+    bot.send_photo(chat_id, photo=open(greet[lang], 'rb'), caption=menu[lang], parse_mode="HTML")
     log(msg)
 
 
 def menu_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
-    bot.send_message(chat_id, text=menu[lang])
+    bot.send_message(chat_id, text=menu[lang], parse_mode="HTML")
     log(msg)
 
 
