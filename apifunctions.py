@@ -125,6 +125,7 @@ def get_report_extended(report_type, passed_hours, points, semester, lang, regis
         exact_gpa=exact_gpa,
         gpa=gpa,
         max_gpa=max_gpa,
+        sem_gpa=sem_gpa,
         honors=honors,
         highest_honors=highest_honors,
         hours_percentage=hours_percentage,
@@ -165,9 +166,10 @@ def get_report_extended(report_type, passed_hours, points, semester, lang, regis
 def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, passed_hours, failed_hours, remaining_hours,
                               avg_hours, remaining_semesters, on_plan, lost_points, honors, highest_honors,
                               hours_percentage,rank_estimation, lang, max_boost, deans_list, gpa_change, ns_hours,
-                              ns_gpa, ns_exact_gpa, ns_sem_gpa, ns_max_gpa, ns_on_plan, ns_avg_hours, ns_hours_percentage,
-                              ns_honors, ns_highest_honors, ns_remaining_hours, ns_remaining_semesters, ns_deans_list,
-                              ns_gpa_change, ns_lost_points, ns_points, ns_tot_pas_hours):
+                              ns_gpa, sem_gpa, ns_exact_gpa, ns_sem_gpa, ns_max_gpa, ns_on_plan, ns_avg_hours,
+                              ns_hours_percentage, ns_honors, ns_highest_honors, ns_remaining_hours,
+                              ns_remaining_semesters, ns_deans_list, ns_gpa_change, ns_lost_points, ns_points,
+                              ns_tot_pas_hours):
 
     report = f'''<blockquote>{config.logo}</blockquote>
 <blockquote>{report_type[lang]}</blockquote>\n\n
@@ -178,7 +180,7 @@ def report_formatter_extended(report_type, gpa, exact_gpa, max_gpa, college, pas
 <b>{text.exact_gpa[lang]}</b>{exact_gpa:.16f}\n
 <b>{text.max_gpa[lang]}</b>{max_gpa}\n
 
-<b>{text.sem_gpa[lang]}</b>{ns_gpa}\n
+<b>{text.sem_gpa[lang]}</b>{sem_gpa}\n
 <b>{text.gpa_change[lang]}</b>{gpa_change}\n
 <b>{text.points_lost[lang]}</b>{lost_points}\n
 
