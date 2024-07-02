@@ -83,6 +83,7 @@ def api_report_request_handler(request_json):
         return 'bad request', 400
     elif report == -2:
         bot.send_message(chat_id=chat_id, text=wrong_info[lang])
+        report_c_handler(chat_id, lang)
         return 'wrong info', 400
     else:
         bot.send_message(chat_id=chat_id, text=report, parse_mode="HTML")
