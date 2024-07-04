@@ -165,7 +165,7 @@ exact_semester_gpa = ['المعدل الفصلي بالضبط: ', 'Exact semeste
 semester_failed_hours = ['ساعات الرسوب هذا الفصل: ', 'Semester failed hours: ']
 points = ['النقاط التي حصلت عليها: ', 'Points gained: ']
 semester_points = ['النقاط التي حصلت عليها هذا الفصل: ', 'Points gained this semester: ']
-max_boost_def = [f'أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل {config.DEFAULT_SEMESTER_HOURS} ساعة وتحصل علىA + في جميع المواد فس الفصل القادم): ',
+max_boost_def = [f'أقصى زيادة ممكنة للمعدل التراكمي(بافتراض أنك ستسجل {config.DEFAULT_SEMESTER_HOURS} ساعة وتحصل علىA + في جميع المواد في الفصل القادم): ',
                  f'Max possible Cumulative GPA boost (Assuming you register for {config.DEFAULT_SEMESTER_HOURS} hours and get A+ in all courses next semester): ']
 
 max_boost = [f'أقصى زيادة ممكنة للمعدل التراكمي بعد الفصل القادم(بافتراض أنك ستحصل على A+ في جميع المواد): ',
