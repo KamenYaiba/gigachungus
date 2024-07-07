@@ -4,7 +4,8 @@ from config import report_a_command, report_b_command
 from keys import WEBHOOK
 from helpingfunctions import error_log
 from handlers import (bot, start_handler, change_language_handler, report_ab_handler, about_handler, menu_handler,
-                      report_manual_handler, api_report_request_handler, unexpected_error, report_help_handler)
+                      report_manual_handler, api_report_request_handler, unexpected_error, report_help_handler,
+                      help_handler)
 
 
 app = Flask(__name__)
@@ -28,8 +29,13 @@ def start_command(msg):
 
 
 @bot.message_handler(commands=['menu'])
-def start_command(msg):
+def menu_command(msg):
     menu_handler(msg)
+
+
+@bot.message_handler(commands=['help'])
+def help_command(msg):
+    help_handler(msg)
 
 
 @bot.message_handler(commands=['lang'])

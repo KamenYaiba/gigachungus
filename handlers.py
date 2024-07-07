@@ -98,6 +98,13 @@ def about_handler(msg):
     log(msg)
 
 
+def help_handler(msg):
+    chat_id = msg.chat.id
+    lang = language(chat_id)
+    bot.send_message(chat_id=chat_id, text=config.help_message[lang])
+    log(msg)
+
+
 def report_help_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
