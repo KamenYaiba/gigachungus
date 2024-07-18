@@ -39,7 +39,7 @@ english_menu = '''
 /lang لتغيير اللغة إلى العربية
 '''
 menu = [arabic_menu, english_menu]
-a_ar = '''أرسل رسالة بالصيغة التالية:
+a_ar = '''أرسل المعلومات التالية بالصيغة التالية في <b>رسالة واحدة</b>:
 
 نوع التقرير(a)
 عدد النقاط التي حصلت عليها
@@ -59,7 +59,7 @@ a
 
 /reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
 '''
-a_en = '''send a message in the following format:
+a_en = '''send the following information in the following format in a <b>single message</b>:
 
 Report Type(a)
 Points you gained
@@ -81,7 +81,7 @@ a
 '''
 report_a_manual = [a_ar, a_en]
 
-b_ar = f'''أرسل رسالة بالصيغة التالية:
+b_ar = f'''أرسل المعلومات التالية بالصيغة التالية في <b>رسالة واحدة</b>:
 
 نوع التقرير(b)
 عدد النقاط التي حصلت عليها
@@ -103,7 +103,7 @@ ce
 
 /reporthelp  إذا كنت لا تعرف نقاطك أو ساعاتك المسجلة أو المجتازة
 '''
-b_en = f'''send a message in the following format:
+b_en = f'''send the following information in the following format in a <b>single message</b>:
 
 Report Type(a)
 Points you gained
