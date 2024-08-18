@@ -1,7 +1,7 @@
 import pytz, traceback, json
 from _datetime import datetime
 from config import(
-    MAX_GPA, TOTAL_HOURS, colleges_dict, arabic_users_json, NUMBER_OF_SEMESTERS, COP_HOURS,
+    MAX_GPA, TOTAL_HOURS, colleges_dict, english_users_json, NUMBER_OF_SEMESTERS, COP_HOURS,
     HONORS, DEANS_LIST_MIN, PLANS)
 from text import(hrs, advanced_by, late_by, no, yes, AR, EN, down, up, constant)
 
@@ -11,23 +11,23 @@ def round_to_nearest_quarter(num):
 
 
 def change_language(chat_id):
-    with open(arabic_users_json, 'r') as file:
-        arabic_ids = json.load(file)
-    if chat_id in arabic_ids:
-        arabic_ids.remove(chat_id)
-        lang = EN
-    else:
-        arabic_ids.append(chat_id)
+    with open(english_users_json, 'r') as file:
+        english_ids = json.load(file)
+    if chat_id in english_ids:
+        english_ids.remove(chat_id)
         lang = AR
-    with open(arabic_users_json, 'w') as file:
-        json.dump(arabic_ids, file)
+    else:
+        english_ids.append(chat_id)
+        lang = EN
+    with open(english_users_json, 'w') as file:
+        json.dump(english_ids, file)
     return lang
 
 
 def language(id):
-    with open(arabic_users_json, 'r') as file:
-        arabic_ids = json.load(file)
-    result = AR if id in arabic_ids else EN
+    with open(english_users_json, 'r') as file:
+        english_ids = json.load(file)
+    result = EN if id in english_ids else AR
     return result
 
 
