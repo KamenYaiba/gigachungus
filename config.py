@@ -63,8 +63,8 @@ signature = '@PSUgpa_bot\nby 𝖒𝖎𝖔~'
 GITHUB_LINK = 'github.com/KamenYaiba/gigaChungus'
 
 ABOUT = [
-    f'مشروع My PSU GPA  ويعرف كذلك بـ gigaChungus هو مشروع مفتوح المصدر مصمم لمساعدة طلاب جامعة الأمير سلطان على حساب تقدمهم الأكاديمي والتخطيط لدراستهم بناء على الأرقام والحسابات\n\nالكود متوفر بالكامل على غيت هب: {GITHUB_LINK}\nالمساهمة مفتوحة ومقدرة (^-^)\n\n لمناقشة ما يخص المشروع أو لطلب المساعدة تواصل مع {admin_username}',
-    f'The My PSU GPA project, also known as GigaChungus, is an open-source project designed to help Prince Sultan University students track their academic progress and plan their studies based on numbers and projections.\n\nThe complete code is available on GitHub: {GITHUB_LINK}\nContributions are open and appreciated (^-^)\n\nTo discuss the project or if you need support please contact {admin_username}'
+    f'مشروع My PSU GPA  ويعرف كذلك بـ gigaChungus هو مشروع مفتوح المصدر مصمم لمساعدة طلاب جامعة الأمير سلطان على حساب تقدمهم الأكاديمي والتخطيط لدراستهم بناء على الأرقام والحسابات\n\nالكود المصدري متوفر  على غيت هب: {GITHUB_LINK}\nالمساهمة مفتوحة ومقدرة (^-^)\n\n لمناقشة ما يخص المشروع أو لطلب المساعدة تواصل مع {admin_username}',
+    f'The My PSU GPA project, also known as GigaChungus, is an open-source project designed to help Prince Sultan University students track their academic progress and plan their studies based on numbers and projections.\n\nThe source code is available on GitHub: {GITHUB_LINK}\nContributions are open and appreciated (^-^)\n\nTo discuss the project or if you need support please contact {admin_username}'
 ]
 
 error_message = f'An unexpected error occurred\ncontact {admin_username} if you need help'
