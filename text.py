@@ -43,7 +43,7 @@ a_ar = '''أرسل المعلومات التالية بالصيغة التالي
 
 نوع التقرير(a)
 عدد النقاط التي حصلت عليها
-الساعات المسجلة
+الساعات المسجلة (باستناء الفصل الحالي)
 الساعات المجتازة
 عدد الفصول التي أكملتها(لا تحسب التحضيري والفصول الصيفية)
 ------------------------------------------
@@ -63,7 +63,7 @@ a_en = '''send the following information in the following format in a <b>single 
 
 Report Type(a)
 Points you gained
-Registered hours
+Registered hours (excluding current semester)
 Passed Hours
 Number of semesters you've passed(PYP and summer semesters don't count)
 ------------------------------------------
@@ -86,7 +86,7 @@ b_ar = f'''أرسل المعلومات التالية بالصيغة التال�
 نوع التقرير(b)
 عدد النقاط التي حصلت عليها
 الساعات المسجلة
-الساعات المجتازة
+الساعات المسجلة (باستناء الفصل الحالي)
 عدد الفصول التي أكملتها(لا تحسب التحضيري والفصول الصيفية)
 {config.colleges_acro[AR]}
 ------------------------------------------
@@ -107,7 +107,7 @@ b_en = f'''send the following information in the following format in a <b>single
 
 Report Type(a)
 Points you gained
-Registered hours
+Registered hours (excluding current semester)
 Passed Hours
 Number of semesters you've passed(PYP and summer semesters don't count)
 {config.colleges_acro[EN]}
