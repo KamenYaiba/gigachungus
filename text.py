@@ -184,8 +184,8 @@ click2copy = ['اضغط للنسخ', 'Click to copy']
 
 
 def after_next_semester(sem_hours, lost_points):
-    return [f'بعد الفصل القادم ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
-            f'After next semester ({sem_hours} hours, and {lost_points} lost points)\n']
+    return [f'بعد نهاية الفصل الحالي ({sem_hours} ساعة مسجلة وخسارة {lost_points} نقاط)\n',
+            f'By the end of the semester ({sem_hours} hours, and {lost_points} lost points)\n']
 
 
 gpa_change = ['تغير المعدل: ', 'GPA change: ']
