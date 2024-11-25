@@ -45,7 +45,7 @@ colleges_acro = ['الكلية(القانون: cl، الهندسة: ce، إدا�
                  'College(Law: cl, Engineering: ce, Business: cb, Architecture and Design:cd, College of Humanities and Sciences: ch)']
 
 
-HONORS = {1: 3.75, 2: 3.25, 3: 3.00}
+HONORS = {1: 3.75, 2: 3.25}
 DEANS_LIST_MIN = 3.75
 DEFAULT_SEMESTER_HOURS = 18
 
