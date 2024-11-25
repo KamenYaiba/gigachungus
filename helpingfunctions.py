@@ -52,10 +52,8 @@ def in_deans_list(gpa, lang):
 def with_honors(gpa):
     if gpa >= HONORS[1]:
         return '🥇 1st'
-    elif gpa >= HONORS[2]:
+    if gpa >= HONORS[2]:
         return '🥈 2nd'
-    elif gpa >= HONORS[3]:
-        return '🥉 3rd'
     return '-'
 
 
