@@ -148,7 +148,7 @@ points_lost = ['النقاط التي خُسرت: ', 'Points lost: ']
 on_plan = ['على الخطة؟: ', 'On Plan?: ']
 deans_list = ['قائمة العميد؟: ', "Dean's list?: "]
 avg_hours = ['متوسط الساعات المتبقية في الفصل الواحد(باستثناء الفصل الأخير): ',
-             'Average remaining hours per semester(excluding the last cop semester): ']
+             'Average remaining hours per semester(excluding the last coop semester): ']
 rank_estimation = ['الترتيب التقريبي(على كليتك): ', 'Rough rank estimation(in your college): ']
 hours_percentage = ['نسبة الساعات المجتازة: ', 'Credit Hours Completed Percentage: ']
 remaining_hours = ['الساعات المتبقية: ', 'Hours Remaining: ']
