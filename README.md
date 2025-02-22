@@ -3,5 +3,4 @@ The My PSU GPA project, also known as GigaChungus, is an open-source project des
 
 The source code is available on GitHub: github.com/KamenYaiba/gigaChungus
 
-Contributions are open and appreciated
 (^-^)
