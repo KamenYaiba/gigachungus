@@ -36,7 +36,7 @@ def report_ab_handler(msg):
     chat_id = msg.chat.id
     lang = language(chat_id)
     text = msg.text.lower()
-    report = report_a_request(text, lang) if text.startswith('a') else report_b_request(text, lang)
+    report = report_a_request(text, lang) if text.startswith('a\n') else report_b_request(text, lang) if text.startswith('b\n') else "I couldn't understand\n/help"
     if report == -1:
         bot.reply_to(msg, text=invalid_format_warning[lang])
     elif report == -2:
